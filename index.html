@@ -1,0 +1,3373 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Δια Χειρός — Εργαστήρι Βυζαντινής Αγιογραφίας & Τοιχογραφίας</title>
+
+  <meta name="description" content="Εργαστήρι βυζαντινής αγιογραφίας στην Ιεράπετρα. Φορητές εικόνες με αυγοτέμπερα και φύλλο χρυσού, τοιχογραφίες ναών και παραγγελίες κατά παραγγελία.">
+  <meta name="theme-color" content="#5C181C">
+
+  <!-- Εικονίδιο στην καρτέλα του browser -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235C181C'/%3E%3Cpath d='M28 12h8v14h14v8H36v20h-8V34H14v-8h14z' fill='%23E2C066'/%3E%3C/svg%3E">
+
+  <!-- Προεπισκόπηση όταν το link στέλνεται σε Viber, Facebook, WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:title" content="Δια Χειρός — Εργαστήρι Βυζαντινής Αγιογραφίας">
+  <meta property="og:description" content="Φορητές εικόνες με αυγοτέμπερα και φύλλο χρυσού 24 καρατίων, και ιστορήσεις ιερών ναών και παρεκκλησίων.">
+  <meta property="og:url" content="https://TO-DOMAIN-SOU.gr/">
+  <meta property="og:image" content="https://TO-DOMAIN-SOU.gr/images/preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts with Full Greek Support (Cormorant Garamond, Cinzel, Noto Serif & Manrope) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond', 'Cinzel', 'Noto Serif', 'serif'],
+            serif: ['Noto Serif', 'Georgia', 'serif'],
+            sans: ['Manrope', 'sans-serif'],
+          },
+          colors: {
+            byz: {
+              crimson: '#5C181C',
+              porphyry: '#3B0D10',
+              gold: '#C59B27',
+              goldLight: '#E2C066',
+              goldDark: '#8C6A14',
+              parchment: '#F9F4E8',
+              vellum: '#EFE6D5',
+              ink: '#231815',
+              umber: '#4A3831',
+              lapis: '#1E3A5F',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Byzantine Scrollbar & Ornate Frame Aesthetics */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F9F4E8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8C6A14;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5C181C;
+    }
+
+    html { scroll-padding-top: 6rem; } /* Subtle Parchment Texture Pattern */
+    .parchment-bg {
+      background-color: #F9F4E8;
+      background-image: radial-gradient(rgba(140, 106, 20, 0.08) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+
+    /* Byzantine Gilded Icon Frame */
+    .byzantine-frame {
+      border: 2px solid #C59B27;
+      box-shadow:
+        inset 0 0 0 3px #3B0D10,
+        inset 0 0 0 5px #C59B27,
+        0 14px 30px -10px rgba(35, 24, 21, 0.28);
+    }
+
+    .byzantine-card-frame {
+      border: 1.5px solid #C59B27;
+      box-shadow: inset 0 0 0 2px #EFE6D5, inset 0 0 0 3px rgba(197, 155, 39, 0.5);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+        /* Γραμμή κάτω από τα links του μενού όταν περνάει ο κέρσορας */
+    .nav-hover a {
+      position: relative;
+    }
+    .nav-hover a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: #C59B27;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+    .nav-hover a:hover::after {
+      transform: scaleX(1);
+    }
+
+        /* Δείκτης μεγέθυνσης πάνω στις φωτογραφίες */
+    #gallery-grid img,
+    #exhibition-grid img,
+    #featured-work-container img {
+      cursor: zoom-in;
+    }
+
+  </style>
+</head>
+<body class="parchment-bg text-byz-ink font-serif antialiased selection:bg-byz-crimson selection:text-byz-parchment">
+
+  <!-- Toast Notification Container (Replaces alert()) -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Στάδια Τεχνικής -->
+<div id="craft-modal" onclick="if (event.target === this) closeCraftModal()" class="fixed inset-0 z-[95] hidden bg-black/75 flex items-center justify-center p-4">
+  <div class="bg-byz-parchment border-2 border-byz-gold rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between bg-byz-porphyry text-byz-parchment px-5 py-4 border-b border-byz-gold shrink-0">
+      <span id="craft-modal-label" class="font-sans text-xs font-extrabold uppercase tracking-widest text-byz-goldLight"></span>
+      <button type="button" onclick="closeCraftModal()" class="w-9 h-9 rounded-lg border border-byz-gold/60 hover:bg-byz-crimson transition cursor-pointer" aria-label="Κλείσιμο"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="overflow-y-auto flex-1">
+      <div class="bg-byz-porphyry border-b border-byz-gold flex items-center justify-center min-h-[140px]">
+        <span id="craft-modal-letter" class="font-display font-bold text-7xl text-byz-goldLight opacity-60"></span>
+        <img id="craft-modal-img" src="" alt="" class="hidden max-h-[45vh] w-auto max-w-full object-contain">
+      </div>
+      <div class="p-5 sm:p-8 space-y-4">
+        <h3 id="craft-modal-title" class="font-display font-bold text-3xl sm:text-4xl text-byz-crimson leading-tight"></h3>
+        <p id="craft-modal-text" class="font-sans text-sm sm:text-base text-byz-umber leading-relaxed whitespace-pre-line"></p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between gap-3 px-5 py-3.5 border-t border-byz-gold/50 bg-byz-vellum shrink-0 font-sans">
+      <button type="button" onclick="stepCraftModal(-1)" class="px-4 py-2 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">
+        <i class="fa-solid fa-arrow-left mr-1.5"></i> Προηγούμενο
+      </button>
+      <button type="button" onclick="stepCraftModal(1)" class="px-4 py-2 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">
+        Επόμενο <i class="fa-solid fa-arrow-right ml-1.5"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- Πληρωμή ετοιμοπαράδοτου: βήμα επιβεβαίωσης -->
+<div id="checkout-modal" onclick="if (event.target === this) closeCheckout()" class="fixed inset-0 z-[90] hidden bg-black/75 flex items-center justify-center p-4">
+  <div class="bg-byz-parchment border-2 border-byz-gold rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between bg-byz-porphyry text-byz-parchment px-5 py-4 border-b border-byz-gold">
+      <h3 class="font-display font-bold text-lg uppercase tracking-wider">Πριν την πληρωμή</h3>
+      <button type="button" onclick="closeCheckout()" class="w-9 h-9 rounded-lg border border-byz-gold/60 hover:bg-byz-crimson transition cursor-pointer" aria-label="Κλείσιμο"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="overflow-y-auto p-5 sm:p-6 space-y-4 font-sans text-sm text-byz-ink leading-relaxed">
+      <div class="bg-byz-vellum/80 border border-byz-gold/50 rounded-xl p-4">
+        <p id="checkout-title" class="font-display font-bold text-xl text-byz-crimson"></p>
+        <p id="checkout-details" class="text-xs text-byz-umber mt-1"></p>
+      </div>
+
+      <ul class="space-y-2 text-xs sm:text-sm">
+        <li><i class="fa-solid fa-lock mr-2 text-byz-goldDark"></i>Η πληρωμή γίνεται σε ασφαλή σελίδα του παρόχου πληρωμών. Τα στοιχεία της κάρτας σας δεν δίνονται σε αυτή την ιστοσελίδα.</li>
+        <li><i class="fa-solid fa-truck mr-2 text-byz-goldDark"></i>Τα έξοδα και ο χρόνος αποστολής αναφέρονται στους Όρους Πώλησης.</li>
+        <li><i class="fa-solid fa-rotate-left mr-2 text-byz-goldDark"></i>Έχετε δικαίωμα υπαναχώρησης 14 ημερών από την παραλαβή.</li>
+      </ul>
+
+      <label class="flex items-start gap-2.5 text-xs text-byz-umber leading-relaxed cursor-pointer">
+        <input type="checkbox" id="checkout-consent" onchange="updateCheckoutButton()" class="mt-0.5 w-4 h-4 accent-[#5C181C] shrink-0">
+        <span>Έχω διαβάσει και αποδέχομαι τους <button type="button" onclick="openTerms()" class="underline decoration-byz-gold underline-offset-2 font-bold text-byz-crimson cursor-pointer">Όρους Πώλησης &amp; Επιστροφών</button>. *</span>
+      </label>
+
+      <button type="button" id="checkout-pay-btn" onclick="confirmCheckout()" disabled class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-byz-porphyry transition shadow-sm opacity-50 cursor-not-allowed">
+        Παραγγελία και πληρωμή
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Όροι Πώλησης & Επιστροφών -->
+<div id="terms-modal" onclick="if (event.target === this) closeTerms()" class="fixed inset-0 z-[96] hidden bg-black/75 flex items-center justify-center p-4">
+  <div class="bg-byz-parchment border-2 border-byz-gold rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between bg-byz-porphyry text-byz-parchment px-5 py-4 border-b border-byz-gold">
+      <h3 class="font-display font-bold text-lg uppercase tracking-wider">Όροι Πώλησης &amp; Επιστροφών</h3>
+      <button type="button" onclick="closeTerms()" class="w-9 h-9 rounded-lg border border-byz-gold/60 hover:bg-byz-crimson transition cursor-pointer" aria-label="Κλείσιμο"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="overflow-y-auto p-5 sm:p-6 space-y-4 font-sans text-sm text-byz-ink leading-relaxed">
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Ποιος πουλάει</h4>
+        <p>[ΟΝΟΜΑΤΕΠΩΝΥΜΟ / ΕΠΩΝΥΜΙΑ ΑΤΟΜΙΚΗΣ ΕΠΙΧΕΙΡΗΣΗΣ], [ΔΙΕΥΘΥΝΣΗ], ΑΦΜ [ΑΦΜ], ΔΟΥ [ΔΟΥ], email: [EMAIL], τηλέφωνο: [ΤΗΛΕΦΩΝΟ].</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Τι πουλάμε online</h4>
+        <p>Μόνο τα έργα που εμφανίζονται ως «Ετοιμοπαράδοτο» και έχουν κουμπί «Αγορά τώρα». Είναι χειροποίητα, μοναδικά κομμάτια. Μικρές διαφορές στο χρώμα σε σχέση με την οθόνη σας είναι φυσιολογικές. Επειδή κάθε έργο είναι μοναδικό, αν σπάνια πληρώσουν δύο άτομα ταυτόχρονα, θα ενημερωθεί αμέσως το δεύτερο και θα επιστραφεί το ποσό.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Τιμές και πληρωμή</h4>
+        <p>Οι τιμές είναι σε ευρώ και [ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΥΝ / ΔΕΝ ΣΥΜΠΕΡΙΛΑΜΒΑΝΟΥΝ] ΦΠΑ. Η πληρωμή γίνεται μέσω [ΠΑΡΟΧΟΣ ΠΛΗΡΩΜΩΝ]. Δεν βλέπουμε και δεν αποθηκεύουμε τα στοιχεία της κάρτας σας.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Αποστολή</h4>
+        <p>Αποστέλλουμε σε: [ΧΩΡΕΣ]. Κόστος αποστολής: [ΚΟΣΤΟΣ ΚΑΙ ΠΩΣ ΥΠΟΛΟΓΙΖΕΤΑΙ]. Αποστολή εντός [π.χ. 3-5 εργάσιμων ημερών] από την πληρωμή, σε ασφαλή συσκευασία. [Παραλαβή από το εργαστήριο: ΝΑΙ / ΟΧΙ.]</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Δικαίωμα υπαναχώρησης (14 ημέρες)</h4>
+        <p>Μπορείτε να υπαναχωρήσετε χωρίς να δώσετε λόγο, εντός 14 ημερών από την ημέρα που παραλάβατε το έργο. Γράψτε μας στο [EMAIL] ότι υπαναχωρείτε. [Υπόδειγμα εντύπου υπαναχώρησης: ΣΥΝΔΕΣΜΟΣ Ή ΚΕΙΜΕΝΟ.] Επιστρέψτε το έργο εντός 14 ημερών από την ειδοποίησή σας, καλά συσκευασμένο και στην ίδια κατάσταση. Τα έξοδα επιστροφής [ΒΑΡΥΝΟΥΝ ΤΟΝ ΑΓΟΡΑΣΤΗ / ΒΑΡΥΝΟΥΝ ΕΜΑΣ].</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Επιστροφή χρημάτων</h4>
+        <p>Επιστρέφουμε το ποσό εντός 14 ημερών από τότε που ενημερωθήκαμε για την υπαναχώρηση, με τον ίδιο τρόπο που πληρώσατε. Μπορούμε να περιμένουμε να παραλάβουμε πρώτα το έργο.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Έργα κατά παραγγελία</h4>
+        <p>Τα έργα που φτιάχνονται κατά παραγγελία, με τη φόρμα αιτήματος, δεν πληρώνονται online. Η τιμή και οι όροι τους συμφωνούνται ξεχωριστά.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Ζημιά ή πρόβλημα</h4>
+        <p>Αν το έργο φτάσει με ζημιά ή με πρόβλημα, γράψτε μας αμέσως στο [EMAIL] με φωτογραφίες. Ισχύουν οι νόμιμες εγγυήσεις για τα αγαθά.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Παράπονα</h4>
+        <p>Επικοινωνήστε μαζί μας στο [EMAIL] ή στο [ΤΗΛΕΦΩΝΟ]. [ΦΟΡΕΑΣ ΕΞΩΔΙΚΑΣΤΙΚΗΣ ΕΠΙΛΥΣΗΣ ΔΙΑΦΟΡΩΝ, ΑΝ ΥΠΑΡΧΕΙ.]</p>
+      </div>
+      <p class="text-xs text-byz-umber">Τελευταία ενημέρωση: [ΗΜΕΡΟΜΗΝΙΑ]</p>
+    </div>
+  </div>
+</div>
+
+  <!-- Πολιτική Απορρήτου -->
+<div id="privacy-modal" onclick="if (event.target === this) closePrivacy()" class="fixed inset-0 z-[95] hidden bg-black/75 flex items-center justify-center p-4">
+  <div class="bg-byz-parchment border-2 border-byz-gold rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col overflow-hidden">
+    <div class="flex items-center justify-between bg-byz-porphyry text-byz-parchment px-5 py-4 border-b border-byz-gold">
+      <h3 class="font-display font-bold text-lg uppercase tracking-wider">Πολιτική Απορρήτου</h3>
+      <button type="button" onclick="closePrivacy()" class="w-9 h-9 rounded-lg border border-byz-gold/60 hover:bg-byz-crimson transition cursor-pointer" aria-label="Κλείσιμο"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="overflow-y-auto p-5 sm:p-6 space-y-4 font-sans text-sm text-byz-ink leading-relaxed">
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Ποιος είναι υπεύθυνος για τα στοιχεία σας</h4>
+        <p>[ΝΙΟΚΑΛΟΣ ΓΡΙΝΙΕΖΆΚΗΣ (ατομική επιχείρηση)], [ΜΕΜΟΥ ΚΑΙ ΙΩΑΝΝΗ ΜΑΚΡΗ 4], email: [diaxeiros.icons@gmail.com], τηλέφωνο: [6977542311].</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Ποια στοιχεία συλλέγουμε</h4>
+        <p>Μέσω της φόρμας παραγγελίας: ονοματεπώνυμο, τηλέφωνο, email (προαιρετικά), είδος και διαστάσεις του έργου και την περιγραφή που γράφετε στο αίτημά σας.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Γιατί τα χρησιμοποιούμε</h4>
+        <p>Μόνο για να επικοινωνήσουμε μαζί σας και να απαντήσουμε στο αίτημά σας, δηλαδή για να σας δώσουμε πληροφορίες και προσφορά. Δεν τα χρησιμοποιούμε για διαφήμιση και δεν τα πουλάμε σε κανέναν. Η βάση είναι η συγκατάθεσή σας και τα βήματα που ζητάτε από εμάς πριν από μια συνεργασία.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Πόσο καιρό τα κρατάμε</h4>
+        <p>Για όσο χρειάζεται για να εξυπηρετηθεί το αίτημά σας. Αν δεν προχωρήσει συνεργασία, τα διαγράφουμε μέσα σε [12 μήνες].</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Με ποιον τα μοιραζόμαστε</h4>
+        <p>Με κανέναν, εκτός από τους παρόχους που χρησιμοποιούμε για τη φιλοξενία της ιστοσελίδας και την αποθήκευση των αιτημάτων: [Google (υπηρεσίες Firebase και Gmail)].</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Αγορά ετοιμοπαράδοτου έργου</h4>
+        <p>Όταν αγοράζετε ένα ετοιμοπαράδοτο έργο, η πληρωμή γίνεται σε σελίδα του παρόχου πληρωμών [ΠΑΡΟΧΟΣ ΠΛΗΡΩΜΩΝ]. Εκεί δίνετε τα στοιχεία της κάρτας σας, τα οποία δεν τα βλέπουμε ούτε τα αποθηκεύουμε. Από τον πάροχο παίρνουμε το όνομά σας, τη διεύθυνση αποστολής, το email, το τηλέφωνο (αν ζητηθεί) και το ποσό, για να σας στείλουμε το έργο και να εκδώσουμε το παραστατικό. Τα κρατάμε για όσο χρόνο απαιτεί η φορολογική νομοθεσία [ΧΡΟΝΟΣ ΔΙΑΤΗΡΗΣΗΣ]. Ο πάροχος επεξεργάζεται τα στοιχεία σας και με τη δική του πολιτική απορρήτου.</p>
+      </div>
+      <div>
+        <h4 class="font-extrabold text-byz-crimson mb-1">Τα δικαιώματά σας</h4>
+        <p>Μπορείτε να ζητήσετε πρόσβαση, διόρθωση ή διαγραφή των στοιχείων σας, να περιορίσετε ή να αντιταχθείτε στη χρήση τους, και να ανακαλέσετε τη συγκατάθεσή σας όποτε θέλετε, γράφοντας στο [diaxeiros.icons@gmail.com]. Έχετε επίσης δικαίωμα να υποβάλετε καταγγελία στην Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (www.dpa.gr).</p>
+      </div>
+      <p class="text-xs text-byz-umber">Τελευταία ενημέρωση: [ΗΜΕΡΟΜΗΝΙΑ]</p>
+    </div>
+  </div>
+</div>
+
+  <!-- Admin Mode Top Status Banner (Visible only when Admin is unlocked) -->
+  <div id="admin-active-bar" class="hidden bg-byz-porphyry text-byz-parchment text-xs sm:text-sm py-2.5 px-4 border-b border-byz-gold sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-byz-goldLight animate-pulse"></span>
+        <span class="font-sans font-bold tracking-wider uppercase text-byz-goldLight">ΛΕΙΤΟΥΡΓΙΑ ΔΙΑΧΕΙΡΙΣΤΗ (ADMIN)</span>
+        <span class="hidden md:inline text-byz-vellum/80 font-sans">| Μπορείτε να ανεβάζετε φωτογραφίες και να επεξεργάζεστε έργα.</span>
+      </div>
+      <div class="flex items-center gap-2 font-sans">
+        <button onclick="openAdminDrawer('inquiries')" class="bg-byz-gold text-byz-porphyry px-3 py-1 rounded text-xs font-extrabold hover:bg-byz-goldLight transition cursor-pointer">
+          <i class="fa-solid fa-sliders mr-1"></i> Πίνακας Διαχείρισης
+        </button>
+        <button onclick="logoutAdmin()" class="border border-byz-gold/60 text-byz-parchment px-3 py-1 rounded text-xs font-semibold hover:bg-byz-crimson transition cursor-pointer">
+          Έξοδος
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-byz-parchment/95 backdrop-blur-md border-b border-byz-gold/50 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18 sm:h-20 py-2">
+
+        <!-- Brand Logo with Byzantine Halo & Cross SVG -->
+        <a href="#home" class="flex items-center gap-3.5 group">
+          <div class="w-11 h-11 rounded-full bg-byz-crimson border-2 border-byz-gold flex items-center justify-center shadow-sm group-hover:bg-byz-porphyry transition shrink-0">
+            <!-- Custom Byzantine Cross & Halo SVG -->
+            <svg class="w-6 h-6 text-byz-goldLight" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="16" cy="16" r="11.5" stroke-dasharray="2 1.5" />
+              <path d="M16 6V26M9 14H23M13 9.5H19M13 22.5H19" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>
+            <span class="font-display font-bold text-2xl sm:text-3xl tracking-wide text-byz-crimson block leading-none">
+              Δια Χειρός
+            </span>
+            <span class="font-sans text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-byz-goldDark font-bold block mt-1">
+              ΕΡΓΑΣΤΗΡΙ ΒΥΖΑΝΤΙΝΗΣ ΑΓΙΟΓΡΑΦΙΑΣ
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-hover hidden lg:flex items-center gap-7 font-sans text-sm font-semibold text-byz-ink">
+          <a href="#home" class="hover:text-byz-crimson transition py-1">Αρχική</a>
+          <a href="#exhibition" class="nav-exhibition-link hover:text-byz-crimson transition py-1">Gallery</a>
+          <a href="#featured" class="hover:text-byz-crimson transition py-1">Έργο σε Εξέλιξη</a>
+          <a href="#gallery" onclick="setGalleryFilter('Όλα')" class="hover:text-byz-crimson transition py-1">Eshop</a>
+          <a href="#craft" class="hover:text-byz-crimson transition py-1">Τεχνοτροπία</a>
+                    <a href="#about" class="nav-about-link hover:text-byz-crimson transition py-1">Ποιος Είμαι</a>
+        </nav>
+
+        <!-- Right Controls: Commission Shortcut, Admin Button, Mobile Menu -->
+        <div class="flex items-center gap-2 sm:gap-3 font-sans">
+          <a href="#commission" class="hidden sm:inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2 rounded-lg text-xs font-bold tracking-wide hover:bg-byz-porphyry transition shadow-xs">
+            <i class="fa-solid fa-scroll text-byz-goldLight"></i>
+            <span>Παραγγελία</span>
+          </a>
+
+          <!-- Admin Button -->
+          <button id="header-admin-btn" onclick="handleAdminButtonClick()" class="admin-only-el hidden relative flex items-center gap-1.5 bg-byz-vellum border border-byz-goldDark/60 text-byz-ink px-3 py-2 rounded-lg text-xs font-bold hover:border-byz-crimson hover:text-byz-crimson transition cursor-pointer" title="Διαχείριση Εργαστηρίου">
+            <i class="fa-solid fa-lock text-[11px] text-byz-goldDark" id="admin-lock-icon"></i>
+            <span>Admin</span>
+            <span id="inquiries-badge" class="hidden bg-byz-crimson text-byz-parchment text-[10px] font-extrabold px-1.5 py-0.2 rounded-full">0</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 border border-byz-goldDark/50 bg-byz-vellum rounded-lg text-byz-crimson hover:bg-byz-crimson hover:text-byz-parchment transition cursor-pointer" aria-label="Μενού">
+            <i class="fa-solid fa-bars text-base" id="mobile-menu-icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-byz-parchment border-t border-byz-gold/40 px-4 pt-3 pb-5 space-y-1.5 font-sans">
+      <a href="#home" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg font-bold text-sm hover:bg-byz-vellum">Αρχική</a>
+      <a href="#exhibition" onclick="toggleMobileMenu()" class="nav-exhibition-link block py-2.5 px-3 rounded-lg font-bold text-sm hover:bg-byz-vellum">Gallery</a>
+      <a href="#featured" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg font-bold text-sm hover:bg-byz-vellum">Έργο σε Εξέλιξη</a>
+      <a href="#gallery" onclick="setGalleryFilter('Όλα'); toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg font-bold text-sm hover:bg-byz-vellum">Eshop</a>
+      <a href="#craft" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg font-bold text-sm hover:bg-byz-vellum">Τεχνοτροπία &amp; Υλικά</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="nav-about-link block py-2.5 px-3 rounded-lg font-bold text-sm hover:bg-byz-vellum">Ποιος Είμαι</a>
+      <a href="#commission" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg font-bold text-sm text-byz-crimson bg-byz-vellum">Αίτημα Παραγγελίας &amp; Επικοινωνία</a>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- HERO SECTION                                                          -->
+  <!-- ===================================================================== -->
+  <section id="home" class="relative overflow-hidden border-b border-byz-gold/50 bg-gradient-to-b from-byz-parchment via-byz-vellum/60 to-byz-parchment">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-18 lg:py-22">
+      <div id="hero-dynamic-container" class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Populated dynamically from appState.hero -->
+      </div>
+    </div>
+  </section>
+
+  <!-- BYZANTINE ORNAMENTAL DIVIDER -->
+  <div class="bg-byz-porphyry text-byz-goldLight py-3.5 px-4 border-b border-byz-gold">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs font-sans font-semibold tracking-[0.2em] uppercase text-center">
+      <span><i class="fa-solid fa-cross mr-2 text-byz-gold"></i>Αυγοτέμπερα σε Ξύλο</span>
+      <span class="hidden sm:inline text-byz-gold/40">&diams;</span>
+      <span><i class="fa-solid fa-certificate mr-2 text-byz-gold"></i>Φύλλο Χρυσού 24 Καρατίων</span>
+      <span class="hidden sm:inline text-byz-gold/40">&diams;</span>
+      <span><i class="fa-solid fa-church mr-2 text-byz-gold"></i>Ιστορήσεις Ιερών Ναών &amp; Παρεκκλησίων</span>
+    </div>
+  </div>
+  <!-- ===================================================================== -->
+  <!-- ΕΚΘΕΣΗ ΕΡΓΩΝ                                                          -->
+  <!-- ===================================================================== -->
+  <section id="exhibition" class="hidden py-16 sm:py-20 bg-byz-parchment border-b border-byz-gold/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+       <div>
+          <span class="font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-byz-goldDark block mb-2">
+          ΕΡΓΑ ΕΠΙΔΕΙΞΗΣ
+          </span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-byz-crimson">
+          Έκθεση Έργων
+          </h2>
+          <p class="font-sans text-sm text-byz-umber mt-3 max-w-2xl leading-relaxed">
+          Μια επιλογή από έργα του εργαστηρίου που παρουσιάζονται μόνο για επίδειξη και δεν διατίθενται προς πώληση.
+          </p>
+        </div>
+
+        <button onclick="openAdminDrawer('exhibition')" class="admin-only-el hidden self-start sm:self-auto font-sans bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+        <i class="fa-solid fa-pen-to-square mr-1.5"></i> Διαχείριση Έκθεσης
+        </button>
+      </div>
+
+      <div id="exhibition-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- FEATURED / WORK IN PROGRESS SPOTLIGHT ("ΕΡΓΟ ΣΕ ΕΞΕΛΙΞΗ")             -->
+  <!-- ===================================================================== -->
+  <section id="featured" class="py-16 sm:py-20 bg-byz-vellum/60 border-b border-byz-gold/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-byz-goldDark block mb-2">
+            ΑΠΟ ΤΟ ΑΝΑΛΟΓΙΟ ΤΟΥ ΕΡΓΑΣΤΗΡΙΟΥ
+          </span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-byz-crimson">
+            Έργο σε Εξέλιξη &amp; Νέα Ιστόρηση
+          </h2>
+        </div>
+
+        <button onclick="openAdminDrawer('featured')" class="admin-only-el hidden self-start sm:self-auto font-sans bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+          <i class="fa-solid fa-pen-to-square mr-1.5"></i> Επεξεργασία Προβαλλόμενου Έργου
+        </button>
+      </div>
+
+      <!-- Featured Work Card -->
+      <div id="featured-work-container" class="bg-byz-parchment byzantine-frame rounded-xl overflow-hidden">
+        <!-- Populated dynamically via JS -->
+      </div>
+
+      <!-- Ημερολόγιο έργου -->
+      <div id="diary-container" class="mt-14"></div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- ARTWORK CATALOG / GALLERY ("ΣΥΛΛΟΓΗ ΕΡΓΩΝ")                           -->
+  <!-- ===================================================================== -->
+  <section id="gallery" class="py-16 sm:py-24 border-b border-byz-gold/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header & Search -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-byz-goldDark block mb-2">
+            ΕΚΘΕΣΗ ΕΡΓΑΣΤΗΡΙΟΥ
+          </span>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl text-byz-crimson">
+            Φορητές Εικόνες &amp; Τοιχογραφίες
+          </h2>
+          <p class="text-byz-umber text-sm sm:text-base mt-2 max-w-2xl">
+            Κάθε εικόνα αγιογραφείται εξ ολοκλήρου στο χέρι, ακολουθώντας τους παραδοσιακούς κανόνες της Μακεδονικής και Κρητικής Σχολής.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 font-sans">
+          <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-byz-goldDark text-xs"></i>
+            <input type="text" id="gallery-search" oninput="renderGallery()" placeholder="Αναζήτηση Αγίου ή θέματος..." class="w-full pl-9 pr-4 py-2.5 bg-white border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson">
+          </div>
+
+          <button onclick="openAdminDrawer('artworks')" class="admin-only-el hidden bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+            <i class="fa-solid fa-plus mr-1"></i> Προσθήκη Εικόνας
+          </button>
+        </div>
+      </div>
+
+      <!-- Category & Sub-category Filter Tabs -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-byz-gold/30 font-sans">
+        <div id="gallery-main-filters" class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+          <!-- Main category buttons injected via JS -->
+        </div>
+
+        <div class="flex items-center gap-2">
+          <label for="status-filter" class="text-xs font-bold text-byz-umber">Κατάσταση:</label>
+          <select id="status-filter" onchange="renderGallery()" class="bg-white border border-byz-goldDark/50 rounded-lg px-3 py-1.5 text-xs font-semibold text-byz-ink focus:outline-none focus:border-byz-crimson">
+            <option value="Όλα">Όλα τα Έργα</option>
+            <option value="Ετοιμοπαράδοτο">Ετοιμοπαράδοτα</option>
+            <option value="Κατόπιν Παραγγελίας">Κατόπιν Παραγγελίας</option>
+            <option value="Παραδόθηκε">Παραδοθέντα / Αρχείο</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Artworks Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Artwork cards injected via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- CRAFTSMANSHIP & MATERIALS ("Η ΤΕΧΝΗ ΚΑΙ ΤΑ ΥΛΙΚΑ")                     -->
+  <!-- ===================================================================== -->
+  <section id="craft" class="py-16 sm:py-24 bg-byz-porphyry text-byz-parchment border-b border-byz-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="font-sans text-xs font-extrabold uppercase tracking-[0.28em] text-byz-goldLight block mb-3">
+          ΠΑΡΑΔΟΣΙΑΚΗ ΤΕΧΝΙΚΗ &amp; ΣΕΒΑΣΜΟΣ
+        </span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl text-byz-parchment">
+          Τα Στάδια της Βυζαντινής Αγιογραφίας
+        </h2>
+        <div class="w-24 h-0.5 bg-byz-gold mx-auto my-5"></div>
+        <p class="text-byz-vellum/85 text-sm sm:text-base leading-relaxed">
+          Από την επιλογή της παλαιωμένης ξυλείας έως το τελικό βερνίκωμα, κάθε στάδιο εκτελείται με αυθεντικές συνταγές αιώνων ώστε το έργο να αντέχει αναλλοίωτο στον χρόνο.
+        </p>
+      </div>
+
+      <div id="craft-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Pillar 1 -->
+        <div class="bg-byz-crimson/40 border border-byz-gold/50 rounded-xl p-6 space-y-4 hover:border-byz-goldLight transition">
+          <div class="w-12 h-12 rounded-full bg-byz-porphyry border border-byz-gold flex items-center justify-center font-display font-bold text-xl text-byz-goldLight">
+            Α΄
+          </div>
+          <h3 class="font-display font-bold text-2xl text-byz-goldLight">Προετοιμασία Ξύλου &amp; Κρητικός Γύψος</h3>
+          <p class="text-byz-vellum/80 text-sm leading-relaxed">
+            Επιλέγουμε ξερό ξύλο φλαμουριάς ή κυπαρισσιού με τρέσες, λινό ύφασμα και 8 έως 12 στρώσεις παραδοσιακού κρητικού γύψου με φυσική κουνελόκολλα.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-byz-crimson/40 border border-byz-gold/50 rounded-xl p-6 space-y-4 hover:border-byz-goldLight transition">
+          <div class="w-12 h-12 rounded-full bg-byz-porphyry border border-byz-gold flex items-center justify-center font-display font-bold text-xl text-byz-goldLight">
+            Β΄
+          </div>
+          <h3 class="font-display font-bold text-2xl text-byz-goldLight">Χρύσωμα με Φύλλο Χρυσού 24Κ</h3>
+          <p class="text-byz-vellum/80 text-sm leading-relaxed">
+            Εφαρμογή γνήσιου φύλλου χρυσού 24 καρατίων πάνω σε αρμενικό αμπόλι, στιλβωμένο στο χέρι με λίθο αχάτη για το άκτιστο φως του κάμπου.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-byz-crimson/40 border border-byz-gold/50 rounded-xl p-6 space-y-4 hover:border-byz-goldLight transition">
+          <div class="w-12 h-12 rounded-full bg-byz-porphyry border border-byz-gold flex items-center justify-center font-display font-bold text-xl text-byz-goldLight">
+            Γ΄
+          </div>
+          <h3 class="font-display font-bold text-2xl text-byz-goldLight">Αυγοτέμπερα &amp; Φυσικές Χρωστικές</h3>
+          <p class="text-byz-vellum/80 text-sm leading-relaxed">
+            Ανάμειξη φυσικών γαιωδών χρωστικών σε σκόνη (ώχρες, κιννάβαρι, λάπις λάζουλι, πράσινο της γης) με γαλάκτωμα κρόκου αυγού.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-byz-crimson/40 border border-byz-gold/50 rounded-xl p-6 space-y-4 hover:border-byz-goldLight transition">
+          <div class="w-12 h-12 rounded-full bg-byz-porphyry border border-byz-gold flex items-center justify-center font-display font-bold text-xl text-byz-goldLight">
+            Δ΄
+          </div>
+          <h3 class="font-display font-bold text-2xl text-byz-goldLight">Τοιχογραφίες Ιερών Ναών</h3>
+          <p class="text-byz-vellum/80 text-sm leading-relaxed">
+            Αρχιτεκτονική και εικονογραφική μελέτη Ιερών Ναών, Παρεκκλησίων και Τέμπλων, με σχεδιασμό ανθιβόλων και επιτόπια ιστόρηση.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+<!-- ΠΟΙΟΣ ΕΙΜΑΙ                                                           -->
+<!-- ===================================================================== -->
+<section id="about" class="hidden py-16 sm:py-24 bg-byz-vellum/60 border-b border-byz-gold/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="about-content"></div>
+  </div>
+</section>
+
+  <!-- ===================================================================== -->
+  <!-- CUSTOM COMMISSION & CONTACT SECTION ("ΑΝΑΘΕΣΗ ΕΡΓΟΥ & ΕΠΙΚΟΙΝΩΝΙΑ")   -->
+  <!-- ===================================================================== -->
+  <section id="commission" class="py-16 sm:py-24 bg-byz-parchment border-b border-byz-gold/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+        <!-- Left Column: Workshop Contact & Guidance -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-byz-goldDark block mb-2">
+              ΕΠΙΚΟΙΝΩΝΙΑ &amp; ΑΝΑΘΕΣΕΙΣ
+            </span>
+            <h2 class="font-display font-bold text-3xl sm:text-5xl text-byz-crimson leading-tight">
+              Ανάθεση Φορητής Εικόνας ή Τοιχογραφίας
+            </h2>
+          </div>
+
+          <p class="text-byz-umber text-sm sm:text-base leading-relaxed">
+            Είτε επιθυμείτε μια ονομαστική εικόνα για το εικονοστάσι του σπιτιού σας, ένα κειμήλιο γάμου/βάπτισης, είτε την πλήρη αγιογράφηση Ιερού Ναού, επικοινωνήστε μαζί μας για να συζητήσουμε τις διαστάσεις και τον χρόνο παράδοσης.
+          </p>
+
+          <!-- Workshop Contact Card -->
+          <div class="bg-byz-vellum border border-byz-gold rounded-xl p-6 space-y-4 shadow-xs">
+            <h3 class="font-display font-bold text-xl text-byz-crimson border-b border-byz-gold/40 pb-2.5">
+              Στοιχεία Εργαστηρίου «Δια Χειρός»
+            </h3>
+
+            <div class="space-y-3 text-sm">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-byz-crimson mt-1"></i>
+                <div>
+                  <span class="font-sans text-xs font-bold uppercase text-byz-goldDark block">Διεύθυνση Εργαστηρίου</span>
+                  <span id="contact-address" class="font-semibold text-byz-ink">Αγίας Σοφίας 28, Κέντρο</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-phone text-byz-crimson mt-1"></i>
+                <div>
+                  <span class="font-sans text-xs font-bold uppercase text-byz-goldDark block">Τηλέφωνο Επικοινωνίας</span>
+                  <span id="contact-phone" class="font-semibold text-byz-ink">2310 456 789 / 697 123 4567</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-envelope text-byz-crimson mt-1"></i>
+                <div>
+                  <span class="font-sans text-xs font-bold uppercase text-byz-goldDark block">Ηλεκτρονικό Ταχυδρομείο</span>
+                  <span id="contact-email" class="font-semibold text-byz-ink">ergastiri@diacheiros-icons.gr</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-regular fa-clock text-byz-crimson mt-1"></i>
+                <div>
+                  <span class="font-sans text-xs font-bold uppercase text-byz-goldDark block">Ώρες Επισκέψεων</span>
+                  <span id="contact-hours" class="font-semibold text-byz-ink whitespace-pre-line">Δευτέρα – Παρασκευή: 09:30 – 14:30 &amp; 17:30 – 20:30
+Σάββατο: 10:00 – 14:00 (Κατόπιν ραντεβού)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Commission Form -->
+        <div class="lg:col-span-7">
+          <form onsubmit="submitCommissionForm(event)" class="bg-white border-2 border-byz-gold rounded-2xl p-6 sm:p-8 shadow-md space-y-5 font-sans">
+            <div class="border-b border-byz-gold/30 pb-4">
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-byz-crimson">Φόρμα Ενδιαφέροντος &amp; Παραγγελίας</h3>
+              <p class="text-xs text-byz-umber mt-1">Συμπληρώστε τα στοιχεία σας και θα επικοινωνήσουμε μαζί σας εντός 24 ωρών.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-byz-ink mb-1.5">Ονοματεπώνυμο / Ιερός Ναός *</label>
+              <input type="text" id="comm-name" required placeholder="π.χ. Γεώργιος Παπαδόπουλος" class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-byz-ink mb-1.5">Τηλέφωνο Επικοινωνίας *</label>
+                <input type="tel" id="comm-phone" required placeholder="π.χ. 69XXXXXXXX" class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson">
+              </div>
+              <div>
+                 <label class="block text-xs font-bold uppercase tracking-wider text-byz-ink mb-1.5">Email</label>
+                  <input type="email" id="comm-email" placeholder="π.χ. onoma@email.gr" class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson">
+             </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-byz-ink mb-1.5">Είδος Έργου *</label>
+                <select id="comm-type" class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm font-semibold focus:outline-none focus:border-byz-crimson">
+                  <option value="Φορητή Εικόνα">Φορητή Εικόνα</option>
+                  <option value="Τοιχογραφία Ιερού Ναού">Τοιχογραφία Ιερού Ναού</option>
+                  <option value="Γεντέκι-Διβάμβουλα">Γεντέκι-Διβάμβουλα</option>
+                  <option value="Επιγονάτια">Επιγονάτια</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-byz-ink mb-1.5">Επιθυμητές Διαστάσεις (εκ.)</label>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="comm-width" min="1" step="any" inputmode="decimal" required placeholder="Πλάτος" class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson">
+                <span class="text-byz-umber font-bold">×</span>
+                <input type="number" id="comm-height" min="1" step="any" inputmode="decimal" required placeholder="Ύψος" class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson">
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-byz-ink mb-1.5">Θέμα Αγιογραφίας / Άγιος &amp; Σχόλια *</label>
+              <textarea id="comm-notes" rows="4" required placeholder="Περιγράψτε τον Άγιο ή την παράσταση που επιθυμείτε, αν προορίζεται για δώρο γάμου/βάπτισης ή για ναό..." class="w-full px-3.5 py-2.5 bg-byz-parchment/50 border border-byz-goldDark/50 rounded-lg text-sm focus:outline-none focus:border-byz-crimson"></textarea>
+            </div>
+
+            <label class="flex items-start gap-2.5 text-xs text-byz-umber leading-relaxed cursor-pointer">
+              <input type="checkbox" id="comm-consent" required class="mt-0.5 w-4 h-4 accent-[#5C181C] shrink-0">
+              <span>Συμφωνώ να χρησιμοποιηθούν τα στοιχεία μου για να επικοινωνήσει μαζί μου το εργαστήριο σχετικά με το αίτημά μου. Έχω διαβάσει την <button type="button" onclick="openPrivacy()" class="underline decoration-byz-gold underline-offset-2 font-bold text-byz-crimson cursor-pointer">πολιτική απορρήτου</button>. *</span>
+            </label>
+
+            <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-byz-porphyry transition shadow-sm cursor-pointer">
+              <i class="fa-solid fa-paper-plane mr-2 text-byz-goldLight"></i> Αποστολή Αιτήματος στο Εργαστήριο
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- FOOTER                                                                -->
+  <!-- ===================================================================== -->
+  <footer class="bg-byz-porphyry text-byz-vellum">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-byz-gold/30">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-full bg-byz-crimson border border-byz-gold flex items-center justify-center text-byz-goldLight">
+            <i class="fa-solid fa-cross"></i>
+          </div>
+          <div>
+            <span class="font-display font-bold text-2xl text-byz-parchment block leading-none">Δια Χειρός</span>
+            <span class="font-sans text-[10px] tracking-[0.2em] uppercase text-byz-goldLight block mt-1">Εργαστήρι Αγιογραφίας &amp; Τοιχογραφίας</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 font-sans text-xs font-semibold">
+          <a href="#home" class="hover:text-byz-goldLight transition">Αρχική</a>
+          <a href="#featured" class="hover:text-byz-goldLight transition">Έργο σε Εξέλιξη</a>
+          <a href="#gallery" class="hover:text-byz-goldLight transition">Συλλογή Έργων</a>
+          <a href="#craft" class="hover:text-byz-goldLight transition">Τεχνοτροπία</a>
+          <a href="#about" class="nav-about-link hover:text-byz-goldLight transition">Ποιος Είμαι</a>
+          <a href="#commission" class="hover:text-byz-goldLight transition">Παραγγελία</a>
+          <button type="button" onclick="openPrivacy()" class="hover:text-byz-goldLight transition cursor-pointer">Πολιτική Απορρήτου</button>
+          <button type="button" onclick="openTerms()" class="terms-link hidden hover:text-byz-goldLight transition cursor-pointer">Όροι Πώλησης</button>
+          <button onclick="handleAdminButtonClick()" class="admin-only-el hidden border border-byz-gold/60 text-byz-goldLight px-3 py-1.5 rounded-lg hover:bg-byz-crimson transition cursor-pointer">
+          <i class="fa-solid fa-gear mr-1"></i> Διαχείριση (Admin)
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-byz-vellum/60">
+        <p>&copy; <span id="footer-year"></span> Εργαστήρι Αγιογραφίας «Δια Χειρός». Με επιφύλαξη παντός δικαιώματος.</p>
+        <p>Χειροποίητες Βυζαντινές Εικόνες &bull; Αυγοτέμπερα &bull; Φύλλο Χρυσού 24Κ</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: ARTWORK DETAILS MODAL                                        -->
+  <!-- ===================================================================== -->
+  <div id="artwork-detail-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-byz-parchment border-2 border-byz-gold rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div class="bg-byz-porphyry text-byz-parchment px-6 py-4 flex items-center justify-between border-b border-byz-gold sticky top-0 z-10">
+        <span class="font-sans text-xs font-extrabold uppercase tracking-widest text-byz-goldLight">ΛΕΠΤΟΜΕΡΕΙΕΣ ΑΓΙΟΓΡΑΦΙΑΣ</span>
+        <button onclick="closeArtworkModal()" class="w-8 h-8 rounded-lg border border-byz-gold/50 flex items-center justify-center hover:bg-byz-crimson transition cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="artwork-detail-body" class="p-6 sm:p-8">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 2: ADMIN LOGIN MODAL                                            -->
+  <!-- ===================================================================== -->
+  <div id="admin-login-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-byz-parchment border-2 border-byz-gold rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl font-sans">
+      <div class="bg-byz-porphyry text-byz-parchment px-6 py-4 flex items-center justify-between border-b border-byz-gold">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-byz-goldLight"></i>
+          <h3 class="font-bold text-sm uppercase tracking-wider">Είσοδος Διαχειριστή</h3>
+        </div>
+        <button onclick="closeAdminLoginModal()" class="w-8 h-8 rounded-lg border border-byz-gold/40 flex items-center justify-center hover:bg-byz-crimson transition cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form onsubmit="submitAdminLogin(event)" class="p-6 space-y-4">
+        <p class="text-xs text-byz-umber leading-relaxed">
+          Εισάγετε τον κωδικό PIN του εργαστηρίου για να προσθέσετε φωτογραφίες έργων, να αλλάξετε το προβαλλόμενο έργο ή να δείτε τα αιτήματα παραγγελιών.
+        </p>
+        <div>
+          <label class="block text-xs font-extrabold uppercase tracking-wider mb-1.5 text-byz-ink">Κωδικός PIN </label>
+          <input type="password" id="admin-pin-input" inputmode="numeric" placeholder="••••" class="w-full px-4 py-3 bg-white border-2 border-byz-gold rounded-xl text-center text-xl font-extrabold tracking-[0.5em] focus:outline-none focus:border-byz-crimson">
+        </div>
+        <div class="flex flex-col gap-2 pt-1">
+          <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-sm hover:bg-byz-porphyry transition cursor-pointer">
+            Ξεκλείδωμα Διαχείρισης
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE-OVER DRAWER: COMPLETE ADMIN CONTROL PANEL                       -->
+  <!-- ===================================================================== -->
+  <div id="admin-drawer-overlay" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-xs flex justify-end font-sans">
+    <div class="bg-byz-parchment w-full max-w-2xl h-full flex flex-col border-l-2 border-byz-gold shadow-2xl overflow-hidden">
+
+      <!-- Drawer Header -->
+      <div class="bg-byz-porphyry text-byz-parchment px-6 py-4 flex items-center justify-between border-b border-byz-gold shrink-0">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-byz-goldLight block">ΔΙΑ ΧΕΙΡΟΣ &bull; ADMIN PANEL</span>
+          <h2 class="font-display font-bold text-2xl text-byz-parchment">Διαχείριση Εργαστηρίου Αγιογραφίας</h2>
+        </div>
+        <button onclick="closeAdminDrawer()" class="w-9 h-9 rounded-lg border border-byz-gold/50 flex items-center justify-center hover:bg-byz-crimson transition cursor-pointer">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Drawer Navigation Tabs -->
+            <div id="admin-tabs-bar" class="flex border-b border-byz-gold/50 bg-byz-vellum overflow-x-auto no-scrollbar shrink-0 cursor-grab select-none">
+        <button onclick="switchAdminTab('featured')" id="tab-btn-featured" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-star mr-1.5"></i> Αρχική
+        </button>
+        <button onclick="switchAdminTab('exhibition')" id="tab-btn-exhibition" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-landmark mr-1.5"></i> Έκθεση Έργων
+        </button>
+        <button onclick="switchAdminTab('diary'); prepareDiaryForm()" id="tab-btn-diary" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-book-open mr-1.5"></i> Ημερολόγιο Έργου
+        </button>
+        <button onclick="switchAdminTab('artworks')" id="tab-btn-artworks" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-byz-crimson bg-byz-parchment text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-images mr-1.5"></i> ESHOP
+        </button>
+        <button onclick="switchAdminTab('craft'); fillCraftForm()" id="tab-btn-craft" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-gem mr-1.5"></i> Στάδια Τεχνικής
+        </button>
+        <button onclick="switchAdminTab('about'); fillAboutForm()" id="tab-btn-about" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-user mr-1.5"></i> Βιογραφικό
+        </button>
+        <button onclick="switchAdminTab('inquiries')" id="tab-btn-inquiries" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-envelope-open-text mr-1.5"></i> Αιτήματα (<span id="tab-inquiries-count">0</span>)
+        </button>
+        <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="admin-tab-btn px-4 py-3.5 text-xs font-extrabold uppercase tracking-wider border-b-2 border-transparent text-byz-umber hover:text-byz-crimson whitespace-nowrap cursor-pointer">
+          <i class="fa-solid fa-sliders mr-1.5"></i> Στοιχεία &amp; Backup
+        </button>
+      </div>
+
+      <!-- Drawer Body -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-8">
+
+        <!-- TAB 1: ARTWORKS (PORTABLE ICONS & FRESCOES) -->
+        <div id="admin-tab-artworks" class="admin-tab-content space-y-6">
+          <form id="artwork-form" onsubmit="saveArtwork(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4 shadow-xs">
+            <div class="flex items-center justify-between">
+              <h3 id="artwork-form-heading" class="font-bold text-sm uppercase text-byz-crimson">Προσθήκη Νέας Εικόνας ή Τοιχογραφίας</h3>
+              <button type="button" id="cancel-artwork-edit-btn" onclick="resetArtworkForm()" class="hidden text-xs font-bold text-byz-crimson underline cursor-pointer">Ακύρωση Επεξεργασίας</button>
+            </div>
+            <input type="hidden" id="edit-artwork-id">
+
+            <!-- Photo Upload from Phone / PC -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-byz-parchment/60 p-3.5 rounded-xl border border-byz-gold/40">
+              <img id="admin-art-preview" src="" alt="Προεπισκόπηση" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold bg-byz-vellum shrink-0">
+              <div class="space-y-2 w-full">
+                <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+                  <i class="fa-solid fa-camera text-byz-goldLight"></i>
+                  <span>Επιλογή Φωτογραφίας (Από Κινητό / Η/Υ)</span>
+                  <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-art-image', 'admin-art-preview')" class="hidden">
+                </label>
+                <input type="text" id="admin-art-image" oninput="document.getElementById('admin-art-preview').src = this.value" placeholder="Ή επικολλήστε σύνδεσμο (URL) φωτογραφίας..." class="w-full px-3 py-1.5 bg-white border border-byz-goldDark/40 rounded-lg text-xs">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Τίτλος Έργου / Αγίου *</label>
+                <input type="text" id="admin-art-title" required placeholder="π.χ. Παναγία η Γλυκοφιλούσα" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Κατηγορία *</label>
+                <select id="admin-art-category" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm bg-white font-semibold">
+                  <option value="Φορητές Εικόνες">Φορητές Εικόνες</option>
+                  <option value="Τοιχογραφίες">Τοιχογραφίες</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Υποκατηγορία</label>
+                <select id="admin-art-subcategory" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm bg-white font-semibold">
+                  <option value="">— Καμία —</option>
+                </select>
+                <input type="text" id="admin-art-subcategory-new" placeholder="Γράψε τη νέα υποκατηγορία" class="hidden mt-2 w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+              <div>
+              <label class="block text-xs font-bold uppercase mb-1">Διαστάσεις (εκ.) *</label>
+                <div class="flex items-center gap-1.5">
+                  <input type="number" id="admin-art-width" min="1" step="any" inputmode="decimal" required placeholder="Πλάτος" class="w-full min-w-0 px-2.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                  <span class="text-byz-goldDark font-bold">&times;</span>
+                  <input type="number" id="admin-art-height" min="1" step="any" inputmode="decimal" required placeholder="Ύψος" class="w-full min-w-0 px-2.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Κατάσταση *</label>
+                <select id="admin-art-status" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm bg-white font-semibold">
+                  <option value="Ετοιμοπαράδοτο">Ετοιμοπαράδοτο</option>
+                  <option value="Κατόπιν Παραγγελίας">Κατόπιν Παραγγελίας</option>
+                  <option value="Παραδόθηκε">Παραδόθηκε</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold uppercase mb-1">Τεχνοτροπία &amp; Υλικά *</label>
+                <input type="text" id="admin-art-technique" required value="Αυγοτέμπερα σε ξύλο φλαμουριάς & φύλλο χρυσού 24Κ" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Τιμή (€)</label>
+                <div class="relative">
+                  <input type="number" id="admin-art-price" min="0" step="any" inputmode="decimal" placeholder="π.χ. 380" class="w-full pl-3 pr-8 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                  <span class="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-bold text-byz-goldDark pointer-events-none">€</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Σύνδεσμος πληρωμής (μόνο για Ετοιμοπαράδοτα)</label>
+              <input type="url" id="admin-art-paylink" pattern="https://.*" title="Ο σύνδεσμος πρέπει να αρχίζει με https://" placeholder="https://buy.stripe.com/..." class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              <p class="text-[11px] text-byz-umber mt-1">Άφησέ το κενό αν δεν θέλεις πληρωμή online. Το κουμπί «Αγορά τώρα» εμφανίζεται μόνο όταν η κατάσταση είναι «Ετοιμοπαράδοτο» και υπάρχει σύνδεσμος.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Περιγραφή Έργου</label>
+              <textarea id="admin-art-desc" rows="2" placeholder="Λίγα λόγια για την τεχνοτροπία, την προέλευση του προτύπου ή τον ναό..." class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+              <i class="fa-solid fa-floppy-disk mr-1.5 text-byz-goldLight"></i> Αποθήκευση Έργου στη Συλλογή
+            </button>
+          </form>
+
+          <!-- List of Existing Artworks -->
+          <div>
+            <h4 class="font-extrabold text-xs uppercase tracking-wider text-byz-umber mb-3">Καταχωρημένα Έργα (<span id="admin-artworks-count">0</span>)</h4>
+            <div id="admin-artworks-list" class="space-y-2.5">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+        </div>
+        
+            <!-- TAB: ΕΚΘΕΣΗ ΕΡΓΩΝ -->
+            <div id="admin-tab-exhibition" class="admin-tab-content hidden space-y-6">
+              <form id="exhibition-form" onsubmit="saveExhibitionWork(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4 shadow-xs">
+                <div class="flex items-center justify-between">
+                  <h3 id="exhibition-form-heading" class="font-bold text-sm uppercase text-byz-crimson">Προσθήκη Έργου στην Έκθεση</h3>
+                  <button type="button" id="cancel-exhibition-edit-btn" onclick="resetExhibitionForm()" class="hidden text-xs font-bold text-byz-crimson underline cursor-pointer">Ακύρωση Επεξεργασίας</button>
+                </div>
+                <input type="hidden" id="edit-exhibition-id">
+
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-byz-parchment/60 p-3.5 rounded-xl border border-byz-gold/40">
+                  <img id="admin-exh-preview" src="" alt="Προεπισκόπηση" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold bg-byz-vellum shrink-0">
+                  <div class="space-y-2 w-full">
+                    <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+                      <i class="fa-solid fa-camera text-byz-goldLight"></i>
+                      <span>Επιλογή Φωτογραφίας (Από Κινητό / Η/Υ)</span>
+                      <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-exh-image', 'admin-exh-preview')" class="hidden">
+                    </label>
+                    <input type="text" id="admin-exh-image" required oninput="document.getElementById('admin-exh-preview').src = this.value" placeholder="Ή επικολλήστε σύνδεσμο (URL) φωτογραφίας" class="w-full px-3 py-1.5 bg-white border border-byz-goldDark/40 rounded-lg text-xs">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold uppercase mb-1">Τίτλος Έργου *</label>
+                  <input type="text" id="admin-exh-title" required placeholder="π.χ. Ο Χριστός Παντοκράτωρ" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold uppercase mb-1">Υπότιτλος (έτος, τεχνική)</label>
+                  <input type="text" id="admin-exh-subtitle" placeholder="π.χ. 2024 • Αυγοτέμπερα σε ξύλο" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold uppercase mb-1">Περιγραφή</label>
+                  <textarea id="admin-exh-desc" rows="3" placeholder="Λίγα λόγια για το έργο" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+                  <i class="fa-solid fa-floppy-disk mr-1.5 text-byz-goldLight"></i> Αποθήκευση στην Έκθεση
+                </button>
+              </form>
+
+              <div>
+                <h4 class="font-extrabold text-xs uppercase tracking-wider text-byz-umber mb-3">Έργα Έκθεσης (<span id="admin-exhibition-count">0</span>)</h4>
+                <div id="admin-exhibition-list" class="space-y-2.5">
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB: ΠΟΙΟΣ ΕΙΜΑΙ -->
+<div id="admin-tab-about" class="admin-tab-content hidden space-y-6">
+  <form id="about-form" onsubmit="saveAbout(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4 shadow-xs">
+    <h3 class="font-bold text-sm uppercase text-byz-crimson">Ενότητα «Ποιος Είμαι»</h3>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-byz-parchment/60 p-3.5 rounded-xl border border-byz-gold/40">
+      <img id="admin-about-preview" src="" alt="Προεπισκόπηση" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold bg-byz-vellum shrink-0">
+      <div class="space-y-2 w-full">
+        <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+          <i class="fa-solid fa-camera text-byz-goldLight"></i>
+          <span>Επιλογή Φωτογραφίας (Από Κινητό / Η/Υ)</span>
+          <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-about-photo', 'admin-about-preview')" class="hidden">
+        </label>
+        <button type="button" onclick="clearAboutPhoto()" class="block text-xs font-bold text-byz-crimson underline cursor-pointer">Αφαίρεση φωτογραφίας</button>
+        <input type="hidden" id="admin-about-photo">
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Παράγραφος 1 (ποιος είσαι, πότε ξεκίνησες)</label>
+      <textarea id="admin-about-text1" rows="3" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+    </div>
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Παράγραφος 2 (σπουδές, δάσκαλος, τεχνοτροπία)</label>
+      <textarea id="admin-about-text2" rows="3" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+    </div>
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Παράγραφος 3 (πώς δουλεύεις με τον πελάτη)</label>
+      <textarea id="admin-about-text3" rows="3" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Τρία νούμερα (π.χ. 20+ και «Χρόνια εμπειρίας»)</label>
+      <div class="space-y-2">
+        <div class="grid grid-cols-3 gap-2">
+          <input type="text" id="admin-about-stat1-num" placeholder="Αριθμός" class="px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+          <input type="text" id="admin-about-stat1-label" placeholder="Τίτλος" class="col-span-2 px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <input type="text" id="admin-about-stat2-num" placeholder="Αριθμός" class="px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+          <input type="text" id="admin-about-stat2-label" placeholder="Τίτλος" class="col-span-2 px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <input type="text" id="admin-about-stat3-num" placeholder="Αριθμός" class="px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+          <input type="text" id="admin-about-stat3-label" placeholder="Τίτλος" class="col-span-2 px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+      <i class="fa-solid fa-floppy-disk mr-1.5 text-byz-goldLight"></i> Αποθήκευση
+    </button>
+  </form>
+</div>
+
+<!-- TAB: ΣΤΑΔΙΑ ΤΕΧΝΙΚΗΣ -->
+<div id="admin-tab-craft" class="admin-tab-content hidden space-y-6">
+  <form id="craft-form" onsubmit="saveCraftStage(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4 shadow-xs">
+    <h3 class="font-bold text-sm uppercase text-byz-crimson">Στάδια Τεχνικής (ενότητα «Τεχνοτροπία»)</h3>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Επιλέξτε στάδιο</label>
+      <select id="admin-craft-select" onchange="fillCraftForm()" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm bg-white font-semibold"></select>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-byz-parchment/60 p-3.5 rounded-xl border border-byz-gold/40">
+      <img id="admin-craft-preview" src="" alt="Προεπισκόπηση" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold bg-byz-vellum shrink-0">
+      <div class="space-y-2 w-full">
+        <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+          <i class="fa-solid fa-camera text-byz-goldLight"></i>
+          <span>Επιλογή Φωτογραφίας (Από Κινητό / Η/Υ)</span>
+          <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-craft-image', 'admin-craft-preview')" class="hidden">
+        </label>
+        <button type="button" onclick="clearCraftPhoto()" class="block text-xs font-bold text-byz-crimson underline cursor-pointer">Αφαίρεση φωτογραφίας</button>
+        <input type="hidden" id="admin-craft-image">
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Τίτλος σταδίου *</label>
+      <input type="text" id="admin-craft-title" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Σύντομη περιγραφή (φαίνεται στην κάρτα) *</label>
+      <textarea id="admin-craft-summary" rows="3" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Αναλυτικές πληροφορίες (φαίνονται στο παράθυρο)</label>
+      <textarea id="admin-craft-details" rows="6" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+      <p class="text-[11px] text-byz-umber mt-1">Αν το αφήσετε κενό, στο παράθυρο θα φαίνεται η σύντομη περιγραφή.</p>
+    </div>
+
+    <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+      <i class="fa-solid fa-floppy-disk mr-1.5 text-byz-goldLight"></i> Αποθήκευση Σταδίου
+    </button>
+  </form>
+</div>
+
+<!-- TAB: ΗΜΕΡΟΛΟΓΙΟ ΕΡΓΟΥ -->
+<div id="admin-tab-diary" class="admin-tab-content hidden space-y-6">
+  <form id="diary-form" onsubmit="saveDiaryEntry(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4 shadow-xs">
+    <div class="flex items-center justify-between">
+      <h3 id="diary-form-heading" class="font-bold text-sm uppercase text-byz-crimson">Νέα Ενημέρωση Έργου</h3>
+      <button type="button" id="cancel-diary-edit-btn" onclick="resetDiaryForm()" class="hidden text-xs font-bold text-byz-crimson underline cursor-pointer">Ακύρωση Επεξεργασίας</button>
+    </div>
+    <input type="hidden" id="edit-diary-id">
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-byz-parchment/60 p-3.5 rounded-xl border border-byz-gold/40">
+      <img id="admin-diary-preview" src="" alt="Προεπισκόπηση" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold bg-byz-vellum shrink-0">
+      <div class="space-y-2 w-full">
+        <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+          <i class="fa-solid fa-camera text-byz-goldLight"></i>
+          <span>Επιλογή Φωτογραφίας (Από Κινητό / Η/Υ)</span>
+          <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-diary-image', 'admin-diary-preview')" class="hidden">
+        </label>
+        <button type="button" onclick="clearDiaryPhoto()" class="block text-xs font-bold text-byz-crimson underline cursor-pointer">Αφαίρεση φωτογραφίας</button>
+        <input type="hidden" id="admin-diary-image">
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Ημερομηνία *</label>
+      <input type="date" id="admin-diary-date" required class="w-full sm:w-56 px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+    </div>
+
+    <div>
+      <label class="block text-xs font-bold uppercase mb-1">Τι έγινε; *</label>
+      <textarea id="admin-diary-text" rows="3" required placeholder="π.χ. Ολοκληρώθηκε το χρύσωμα του κάμπου και ξεκίνησαν οι προπλασμοί." class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+      <i class="fa-solid fa-floppy-disk mr-1.5 text-byz-goldLight"></i> Αποθήκευση Ενημέρωσης
+    </button>
+  </form>
+
+  <div>
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="font-extrabold text-xs uppercase tracking-wider text-byz-umber">Ενημερώσεις (<span id="admin-diary-count">0</span>)</h4>
+      <button type="button" onclick="clearDiary()" class="text-xs font-bold text-byz-umber hover:text-byz-crimson underline cursor-pointer">Διαγραφή όλων (νέο έργο)</button>
+    </div>
+    <div id="admin-diary-list" class="space-y-2.5"></div>
+  </div>
+</div>
+
+        <!-- TAB 2: HERO & FEATURED WORK IN PROGRESS EDITOR -->
+        <div id="admin-tab-featured" class="admin-tab-content hidden space-y-8">
+          <!-- Featured Work in Progress Form -->
+          <form onsubmit="saveFeaturedWork(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4">
+            <h3 class="font-bold text-sm uppercase text-byz-crimson border-b border-byz-gold/30 pb-2">
+              1. Προβαλλόμενο «Έργο σε Εξέλιξη / Νέα Ιστόρηση»
+            </h3>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <img id="admin-feat-preview" src="" alt="Preview" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold shrink-0">
+              <div class="space-y-2 w-full">
+                <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment px-3.5 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+                  <i class="fa-solid fa-camera text-byz-goldLight"></i>
+                  <span>Ανέβασμα Φωτογραφίας</span>
+                  <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-feat-image', 'admin-feat-preview')" class="hidden">
+                </label>
+                <input type="text" id="admin-feat-image" oninput="document.getElementById('admin-feat-preview').src = this.value" class="w-full px-3 py-1.5 border border-byz-goldDark/40 rounded-lg text-xs">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Τίτλος Έργου</label>
+                <input type="text" id="admin-feat-title" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Στάδιο / Ετικέτα</label>
+                <input type="text" id="admin-feat-status" required placeholder="π.χ. Στάδιο: Χρύσωμα & Προπλασμοί" class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <                <label class="block text-xs font-bold uppercase mb-1">Διαστάσεις (εκ.)</label>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="admin-feat-width" min="1" step="any" inputmode="decimal" required placeholder="Πλάτος" class="w-full min-w-0 px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                  <span class="text-byz-goldDark font-bold">&times;</span>
+                  <input type="number" id="admin-feat-height" min="1" step="any" inputmode="decimal" required placeholder="Ύψος" class="w-full min-w-0 px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Τεχνοτροπία</label>
+                <input type="text" id="admin-feat-technique" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Περιγραφή</label>
+              <textarea id="admin-feat-desc" rows="3" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+              Ενημέρωση Έργου σε Εξέλιξη
+            </button>
+          </form>
+
+          <!-- Hero Banner Editor -->
+          <form onsubmit="saveHeroSettings(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4">
+            <h3 class="font-bold text-sm uppercase text-byz-crimson border-b border-byz-gold/30 pb-2">
+              2. Κεντρική Εικόνα &amp; Τίτλος Αρχικής Σελίδας (Hero)
+            </h3>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <img id="admin-hero-preview" src="" alt="Hero Preview" class="w-24 h-28 object-cover rounded-lg border-2 border-byz-gold shrink-0">
+              <div class="space-y-2 w-full">
+                <label class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment px-3.5 py-2 rounded-lg text-xs font-bold cursor-pointer hover:bg-byz-porphyry transition">
+                  <i class="fa-solid fa-camera text-byz-goldLight"></i>
+                  <span>Αλλαγή Κεντρικής Φωτογραφίας</span>
+                  <input type="file" accept="image/*" onchange="handleImageUpload(event, 'admin-hero-image', 'admin-hero-preview')" class="hidden">
+                </label>
+                <input type="text" id="admin-hero-image" oninput="document.getElementById('admin-hero-preview').src = this.value" class="w-full px-3 py-1.5 border border-byz-goldDark/40 rounded-lg text-xs">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Κεντρικός Τίτλος</label>
+              <input type="text" id="admin-hero-title" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Υπότιτλος / Εισαγωγικό Κείμενο</label>
+              <textarea id="admin-hero-subtitle" rows="3" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Λεζάντα Κεντρικής Εικόνας</label>
+              <input type="text" id="admin-hero-caption" required class="w-full px-3 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+            </div>
+
+            <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+              Αποθήκευση Αρχικής Σελίδας
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 3: INCOMING COMMISSION INQUIRIES -->
+        <div id="admin-tab-inquiries" class="admin-tab-content hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-sm uppercase text-byz-crimson">Αιτήματα Παραγγελιών &amp; Επικοινωνίας</h3>
+            <button onclick="clearInquiries()" class="text-xs font-bold text-byz-umber hover:text-byz-crimson underline cursor-pointer">
+              Καθαρισμός Όλων
+            </button>
+          </div>
+          <div id="admin-inquiries-list" class="space-y-3">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- TAB 4: WORKSHOP SETTINGS & BACKUP -->
+        <div id="admin-tab-settings" class="admin-tab-content hidden space-y-6">
+          <form onsubmit="saveWorkshopSettings(event)" class="bg-white border border-byz-gold rounded-2xl p-5 space-y-4">
+            <h3 class="font-bold text-sm uppercase text-byz-crimson">Στοιχεία Επικοινωνίας Εργαστηρίου</h3>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Διεύθυνση</label>
+              <input type="text" id="admin-set-address" class="w-full px-3.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Τηλέφωνα</label>
+                <input type="text" id="admin-set-phone" class="w-full px-3.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase mb-1">Email</label>
+                <input type="email" id="admin-set-email" class="w-full px-3.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Ωράριο Επισκέψεων</label>
+              <textarea id="admin-set-hours" rows="2" class="w-full px-3.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase mb-1">Κωδικός PIN Διαχειριστή</label>
+              <input type="text" id="admin-set-pin" maxlength="8" class="w-full px-3.5 py-2 border border-byz-goldDark/50 rounded-lg text-sm font-bold">
+            </div>
+
+            <button type="submit" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+              Αποθήκευση Ρυθμίσεων
+            </button>
+          </form>
+
+          <div class="bg-white border border-byz-gold/60 rounded-2xl p-5 space-y-3"><h4 class="font-extrabold text-xs uppercase tracking-wider text-byz-umber">Δημοσίευση περιεχομένου (content.js)</h4><p class="text-xs text-byz-umber/80 leading-relaxed">Το αρχείο content.js κρατά τα έργα και τα κείμενα του site. Όταν είναι δίπλα στο diaxeiros.html, το site φαίνεται σωστά σε κάθε browser, χωρίς εισαγωγή JSON.</p><p id="content-sync-note" class="text-xs font-bold text-byz-crimson"></p><button type="button" onclick="exportContentJS()" class="px-4 py-2 bg-byz-crimson text-byz-parchment border border-byz-gold rounded-lg text-xs font-bold hover:bg-byz-porphyry transition cursor-pointer"><i class="fa-solid fa-file-arrow-down mr-1.5"></i> Εξαγωγή για δημοσίευση (content.js)</button></div>
+          <div class="bg-white border border-byz-gold/60 rounded-2xl p-5 space-y-3">
+            <h4 class="font-extrabold text-xs uppercase tracking-wider text-byz-umber">Αντίγραφα Ασφαλείας &amp; Επαναφορά</h4>
+            <div class="flex flex-wrap gap-2.5">
+              <button type="button" onclick="exportBackupJSON()" class="px-4 py-2 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">
+                <i class="fa-solid fa-download mr-1.5"></i> Εξαγωγή Backup (JSON)
+              </button>
+              <label class="px-4 py-2 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">
+                <i class="fa-solid fa-upload mr-1.5"></i> Εισαγωγή Backup
+                <input type="file" accept=".json" onchange="importBackupJSON(event)" class="hidden">
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <script src="content.js"></script><!-- ΛΟΓΙΚΗ ΕΦΑΡΜΟΓΗΣ                  -->
+  <!-- ===================================================================== -->
+  <script>
+    // Helper: Creates high-detail SVG Byzantine Icon / Fresco illustrations as reliable built-in artwork defaults
+    function createByzantineArtworkSVG({ bgTop, bgBottom, haloColor, robeColor, mantleColor, titleText, isFresco = false }) {
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+          <defs>
+            <linearGradient id="goldLeaf" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#E5C158"/>
+              <stop offset="50%" stop-color="#C59B27"/>
+              <stop offset="100%" stop-color="#8C6A14"/>
+            </linearGradient>
+            <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="${bgTop}"/>
+              <stop offset="100%" stop-color="${bgBottom}"/>
+            </linearGradient>
+          </defs>
+          <!-- Outer Crimson Border -->
+          <rect width="600" height="750" fill="#4A1115"/>
+          <rect x="18" y="18" width="564" height="714" fill="none" stroke="url(#goldLeaf)" stroke-width="4"/>
+          <rect x="30" y="30" width="540" height="690" fill="url(#bgGrad)" stroke="#231815" stroke-width="2"/>
+          
+          ${isFresco ? `
+            <!-- Architectural Arch for Church Fresco -->
+            <path d="M55 720 L55 310 A245 245 0 0 1 545 310 L545 720 Z" fill="none" stroke="url(#goldLeaf)" stroke-width="6"/>
+            <path d="M75 720 L75 315 A225 225 0 0 1 525 315 L525 720 Z" fill="none" stroke="#F9F4E8" stroke-width="1.5" stroke-opacity="0.5"/>
+          ` : `
+            <!-- Inner Gold Leaf Field -->
+            <rect x="46" y="46" width="508" height="658" fill="url(#goldLeaf)" opacity="0.92"/>
+            <rect x="58" y="58" width="484" height="634" fill="none" stroke="#5C181C" stroke-width="2.5"/>
+          `}
+
+          <!-- Sacred Halo -->
+          <circle cx="300" cy="255" r="128" fill="${haloColor}" stroke="#5C181C" stroke-width="4"/>
+          <circle cx="300" cy="255" r="116" fill="none" stroke="#FFF8E7" stroke-width="2" stroke-dasharray="4 4"/>
+          
+          <!-- Byzantine Monogram Letters -->
+          <text x="115" y="135" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="${isFresco ? '#F9F4E8' : '#5C181C'}">ΙϹ</text>
+          <text x="445" y="135" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="${isFresco ? '#F9F4E8' : '#5C181C'}">ΧϹ</text>
+
+          <!-- Stylized Draped Vestments -->
+          <path d="M125 692 C135 480, 195 415, 300 415 C405 415, 465 480, 475 692 Z" fill="${mantleColor}" stroke="#231815" stroke-width="3"/>
+          <path d="M195 692 C205 510, 235 430, 300 430 C365 430, 395 510, 405 692 Z" fill="${robeColor}" stroke="#231815" stroke-width="2.5"/>
+          <!-- Gold Chrysography Lines on Robe -->
+          <path d="M235 475 L215 670 M265 460 L255 680 M335 460 L345 680 M365 475 L385 670" stroke="url(#goldLeaf)" stroke-width="2.5" opacity="0.85"/>
+          
+          <!-- Neck & Stylized Byzantine Face Silhouette -->
+          <path d="M272 340 L272 425 Q300 442 328 425 L328 340 Z" fill="#C68B59" stroke="#3B2314" stroke-width="2"/>
+          <ellipse cx="300" cy="262" rx="64" ry="84" fill="#D49B6A" stroke="#3B2314" stroke-width="2.5"/>
+          <!-- Hair / Veil -->
+          <path d="M230 275 C225 185, 260 165, 300 165 C340 165, 375 185, 370 275 C362 215, 338 195, 300 195 C262 195, 238 215, 230 275 Z" fill="#2E1A12"/>
+          <!-- Serene Brow & Eyes -->
+          <path d="M262 245 Q278 237 292 246 M308 246 Q322 237 338 245" fill="none" stroke="#2E1A12" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="278" cy="256" rx="9" ry="5" fill="#2E1A12"/>
+          <ellipse cx="322" cy="256" rx="9" ry="5" fill="#2E1A12"/>
+          <path d="M300 252 L296 286 L305 288" fill="none" stroke="#4A2C18" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M288 308 Q300 313 312 308" fill="none" stroke="#7A2828" stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Title Cartouche at Bottom -->
+          <rect x="95" y="625" width="410" height="48" rx="4" fill="#3B0D10" stroke="url(#goldLeaf)" stroke-width="2"/>
+          <text x="300" y="655" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#F9F4E8" letter-spacing="1.5">${titleText}</text>
+        </svg>
+      `;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg.trim());
+    }
+
+    // Default Initial Data for "Δια Χειρός"
+    const DEFAULT_STATE = {
+      pin: '1234',
+      settings: {
+        address: 'Μεμού και Ιωάννη Μακρή 4, Ιεράπετρα',
+        phone: '697 754 2311',
+        email: 'diaxeiros.icons@gmail.com',
+        hours: 'Δευτέρα – Παρασκευή: 09:30 – 14:30 & 17:30 – 20:30\nΣάββατο: 10:00 – 14:00 (Κατόπιν ραντεβού)'
+      },
+      hero: {
+        title: 'Ιερά Τέχνη & Παράδοση, Γραμμένη Δια Χειρός',
+        subtitle: 'Στο εργαστήρι μας ιστορούμε φορητές βυζαντινές εικόνες με αυγοτέμπερα και φύλλο χρυσού 24 καρατίων πάνω σε παλαιωμένο ξύλο, καθώς και μνημειακές τοιχογραφίες Ιερών Ναών με σεβασμό στην εκκλησιαστική παράδοση.',
+        caption: 'Χριστός Παντοκράτωρ — Αυγοτέμπερα & Φύλλο Χρυσού 24Κ',
+        image: createByzantineArtworkSVG({
+          bgTop: '#5C181C',
+          bgBottom: '#2B090B',
+          haloColor: '#E5C158',
+          robeColor: '#6E1D22',
+          mantleColor: '#1E3A5F',
+          titleText: 'Ο ΠΑΝΤΟΚΡΑΤΩΡ',
+          isFresco: false
+        })
+      },
+      featuredWork: {
+        title: 'Παναγία η Γλυκοφιλούσα (Σκαφτό Ξύλο Φλαμουριάς)',
+        status: 'Στάδιο: Φωτίσματα Προσώπου & Χρυσογραφία',
+        dimensions: '35 x 48 εκ.',
+        technique: 'Αυγοτέμπερα, κρητικός γύψος, στιλβωτό φύλλο χρυσού 24Κ',
+        description: 'Αγιογραφείται αυτή την περίοδο στο εργαστήρι μας πάνω σε χειροποίητο σκαφτό ξύλο φλαμουριάς με τρέσες. Το μαφόριο της Θεοτόκου αποδίδεται με φυσικό κιννάβαρι και βυζαντινή πορφύρα, ενισχυμένο με λεπτή χρυσογραφία.',
+        image: createByzantineArtworkSVG({
+          bgTop: '#3E0F12',
+          bgBottom: '#1F0709',
+          haloColor: '#D4AF37',
+          robeColor: '#1E3A5F',
+          mantleColor: '#6B1A1F',
+          titleText: 'ΜΗΤΗΡ ΘΕΟΥ Η ΓΛΥΚΟΦΙΛΟΥΣΑ',
+          isFresco: false
+        })
+      },
+      artworks: [
+        {
+          id: 'art1',
+          title: 'Χριστός Παντοκράτωρ',
+          category: 'Φορητές Εικόνες',
+          subcategory: 'Δεσποτικές',
+          dimensions: '30 x 40 εκ.',
+          technique: 'Αυγοτέμπερα σε ξύλο φλαμουριάς & φύλλο χρυσού 24Κ',
+          status: 'Ετοιμοπαράδοτο',
+          price: '420 €',
+          description: 'Κλασικός βυζαντινός τύπος της Κρητικής Σχολής. Στιλβωτός χρυσός κάμπος με εγχάρακτο φωτοστέφανο και φυσικές ώχρες.',
+          image: createByzantineArtworkSVG({
+            bgTop: '#5C181C',
+            bgBottom: '#2B090B',
+            haloColor: '#E5C158',
+            robeColor: '#6E1D22',
+            mantleColor: '#1E3A5F',
+            titleText: 'ΙϹ ΧϹ Ο ΠΑΝΤΟΚΡΑΤΩΡ',
+            isFresco: false
+          })
+        },
+        {
+          id: 'art2',
+          title: 'Παναγία η Βρεφοκρατούσα (Οδηγήτρια)',
+          category: 'Φορητές Εικόνες',
+          subcategory: 'Θεομητορικές',
+          dimensions: '32 x 42 εκ.',
+          technique: 'Αυγοτέμπερα σε παλαιωμένο ξύλο & φύλλο χρυσού 24Κ',
+          status: 'Ετοιμοπαράδοτο',
+          price: '450 €',
+          description: 'Εικόνα υψηλής πνευματικότητας, ιδανική για ευλογία οικίας ή γάμου. Παραδίδεται με πιστοποιητικό γνησιότητας υλικών.',
+          image: createByzantineArtworkSVG({
+            bgTop: '#4A1216',
+            bgBottom: '#24080A',
+            haloColor: '#DFBA4C',
+            robeColor: '#1D395E',
+            mantleColor: '#69191E',
+            titleText: 'ΜΡ ΘΥ Η ΟΔΗΓΗΤΡΙΑ',
+            isFresco: false
+          })
+        },
+        {
+          id: 'art3',
+          title: 'Ιστόρηση Κόγχης Ιερού Βήματος — Η Πλατυτέρα των Ουρανών',
+          category: 'Τοιχογραφίες',
+          subcategory: 'Ιεροί Ναοί',
+          dimensions: '4.20 x 3.10 μ.',
+          technique: 'Επιτόπια τοιχογραφία με φυσικές γαιώδεις χρωστικές',
+          status: 'Παραδόθηκε',
+          price: 'Έργο Ιερού Ναού',
+          description: 'Μνημειακή τοιχογράφηση σε κόγχη Ιερού Ναού με βαθύ βυζαντινό κυανό (λάπις λάζουλι) και χρυσούς φωτοστεφάνους.',
+          image: createByzantineArtworkSVG({
+            bgTop: '#1E3A5F',
+            bgBottom: '#102238',
+            haloColor: '#D4AF37',
+            robeColor: '#1E3A5F',
+            mantleColor: '#5C181C',
+            titleText: 'Η ΠΛΑΤΥΤΕΡΑ ΤΩΝ ΟΥΡΑΝΩΝ',
+            isFresco: true
+          })
+        },
+        {
+          id: 'art4',
+          title: 'Άγιος Νικόλαος Αρχιεπίσκοπος Μύρων',
+          category: 'Φορητές Εικόνες',
+          subcategory: 'Αγίων',
+          dimensions: '25 x 33 εκ.',
+          technique: 'Αυγοτέμπερα σε σκαφτό ξύλο & φύλλο χρυσού 24Κ',
+          status: 'Κατόπιν Παραγγελίας',
+          price: '340 €',
+          description: 'Αγιογραφείται κατόπιν παραγγελίας σε 15–20 ημέρες. Αρχιερατικά άμφια με λεπτομερή πολυσταύρια.',
+          image: createByzantineArtworkSVG({
+            bgTop: '#5C181C',
+            bgBottom: '#300B0E',
+            haloColor: '#E2C066',
+            robeColor: '#2D4A3E',
+            mantleColor: '#6B2428',
+            titleText: 'Ο ΑΓΙΟΣ ΝΙΚΟΛΑΟΣ',
+            isFresco: false
+          })
+        },
+        {
+          id: 'art5',
+          title: 'Αγιογράφηση Παρεκκλησίου Αγίου Γεωργίου',
+          category: 'Τοιχογραφίες',
+          subcategory: 'Παρεκκλήσια',
+          dimensions: 'Πλήρης Ιστόρηση 65 τ.μ.',
+          technique: 'Παραδοσιακή τοιχογραφία Μακεδονικής Σχολής',
+          status: 'Κατόπιν Παραγγελίας',
+          price: 'Κατόπιν Μελέτης',
+          description: 'Ολοκληρωμένος εικονογραφικός σχεδιασμός και εκτέλεση τοιχογραφιών σε ιδιωτικά και ενοριακά παρεκκλήσια.',
+          image: createByzantineArtworkSVG({
+            bgTop: '#1A3454',
+            bgBottom: '#0E1D30',
+            haloColor: '#C59B27',
+            robeColor: '#5C181C',
+            mantleColor: '#2E4A36',
+            titleText: 'ΤΟΙΧΟΓΡΑΦΙΑ ΠΑΡΕΚΚΛΗΣΙΟΥ',
+            isFresco: true
+          })
+        },
+        {
+          id: 'art6',
+          title: 'Άγιος Γεώργιος ο Τροπαιοφόρος',
+          category: 'Φορητές Εικόνες',
+          subcategory: 'Αγίων',
+          dimensions: '28 x 38 εκ.',
+          technique: 'Αυγοτέμπερα σε ξύλο & χρυσός 24Κ',
+          status: 'Ετοιμοπαράδοτο',
+          price: '390 €',
+          description: 'Ζωντανές φυσικές χρωστικές κιννάβαρι και ώχρας πάνω σε στιλβωτό χρυσό βάθος.',
+          image: createByzantineArtworkSVG({
+            bgTop: '#4F1418',
+            bgBottom: '#29090C',
+            haloColor: '#E5C158',
+            robeColor: '#1E3A5F',
+            mantleColor: '#7A1C21',
+            titleText: 'Ο ΑΓΙΟΣ ΓΕΩΡΓΙΟΣ',
+            isFresco: false
+          })
+        }
+      ],
+      inquiries: [
+        {
+          id: 'inq_demo_1',
+          date: '16/11/2026',
+          name: 'π. Δημήτριος Κωνσταντίνου',
+          phone: '6944 112 233',
+          type: 'Τοιχογραφία Ιερού Ναού / Παρεκκλησίου',
+          dimensions: 'Κόγχη 3.5 x 2.4 μ.',
+          notes: 'Ενδιαφερόμαστε για την ιστόρηση της κόγχης του Ιερού Βήματος σε παρεκκλήσιο. Παρακαλώ επικοινωνήστε μαζί μας για αυτοψία.'
+        }
+      ]
+    };
+
+    // Application State
+    let appState = loadState();
+    let isAdminLoggedIn = sessionStorage.getItem('diacheiros_admin_auth') === 'true';
+    let activeGalleryFilter = 'Όλα';
+
+        // Διακόπτης για την πληρωμή online: άλλαξέ το σε true ΜΟΝΟ όταν έχουν συμπληρωθεί οι «Όροι Πώλησης»
+    const TERMS_READY = true;
+
+    // Βοηθητικά: ασφαλές κείμενο μέσα σε HTML και ασφαλή ορίσματα μέσα σε onclick
+    function esc(s) {
+      return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    function jsArg(s) {
+      return JSON.stringify(String(s ?? '')).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+    }
+    function escInq(q) {
+      return Object.fromEntries(Object.entries(q).map(([k, v]) => [k, esc(v)]));
+    }
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem('diacheiros_workshop_v1');
+        if (saved) return pickNewestState(JSON.parse(saved));
+      } catch (e) {
+        console.error('Error loading state:', e);
+      }
+      return pickNewestState(null);
+    }
+
+    function persistState() {
+      try {
+        saveStateToStorage();
+      } catch (e) {
+        showToast('ΔΕΝ αποθηκεύτηκε: ο χώρος του browser γέμισε. Η αλλαγή θα χαθεί αν ανανεώσεις τη σελίδα.', 'error');
+      }
+    }
+
+    // ── Περιεχόμενο από το αρχείο content.js (ώστε το site να φαίνεται σωστά σε κάθε browser) ──
+    function pickNewestState(local) {
+      const site = window.SITE_CONTENT;
+      const siteOk = Boolean(site && site.artworks && site.featuredWork && site.hero);
+      if (siteOk && (!local || (local.contentVersion || 0) < (site.contentVersion || 0))) {
+        return { inquiries: (local && local.inquiries) || [], ...site, pin: (local && local.pin) || DEFAULT_STATE.pin };
+      }
+      if (local) return local;
+      const fresh = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      return fresh;
+    }
+
+    function saveStateToStorage() {
+      if (isAdminLoggedIn) appState.contentVersion = Date.now();
+      const raw = JSON.stringify(appState);
+      localStorage.setItem('diacheiros_workshop_v1', raw);
+      updateContentSyncNote();
+    }
+
+    function updateContentSyncNote() {
+      const el = document.getElementById('content-sync-note');
+      if (!el) return;
+      const site = window.SITE_CONTENT;
+      const published = site ? (site.contentVersion || 0) : 0;
+      const mine = appState.contentVersion || 0;
+      if (mine > published && mine === window.__lastExportedVersion) {
+        el.textContent = 'Κατέβηκε νέο content.js. Βάλ’ το στον φάκελο του diaxeiros.html (αντικατάσταση) και ανανέωσε τη σελίδα.';
+      } else if (!site) {
+        el.textContent = 'Δεν βρέθηκε αρχείο content.js δίπλα στο diaxeiros.html. Πάτησε το κουμπί και βάλε το αρχείο που θα κατέβει στον ίδιο φάκελο.';
+      } else if (mine > published) {
+        el.textContent = '⚠ Έχεις αλλαγές που δεν είναι ακόμα στο content.js. Πάτησε το κουμπί και αντικατάστησε το αρχείο.';
+      } else {
+        el.textContent = '✓ Το content.js είναι ενημερωμένο (' + new Date(published).toLocaleString('el-GR') + ').';
+      }
+    }
+
+    function exportContentJS() {
+      appState.contentVersion = Date.now();
+      persistState();
+      window.__lastExportedVersion = appState.contentVersion;
+      const { pin, inquiries, ...pub } = appState;
+      const text = '// Δια Χειρός: περιεχόμενο του site. Φτιάχνεται αυτόματα από το admin, μην το αλλάζεις με το χέρι.\nwindow.SITE_CONTENT = ' + JSON.stringify(pub) + ';\n';
+      const url = URL.createObjectURL(new Blob([text], { type: 'text/javascript' }));
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'content.js';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+      updateContentSyncNote();
+      showToast('Κατέβηκε το content.js. Βάλ’ το στον φάκελο του diaxeiros.html, αντικαθιστώντας το παλιό.');
+    }
+
+    // Toast μηνυμάτων (δεν χρησιμοποιεί alert())
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `bg-byz-porphyry border border-byz-gold text-byz-parchment px-4 py-3 rounded-xl shadow-2xl font-sans text-xs sm:text-sm font-semibold flex items-center gap-2.5 pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0`;
+      const icon = type === 'error' ? 'fa-circle-exclamation text-byz-goldLight' : 'fa-circle-check text-byz-goldLight';
+      toast.innerHTML = `<i class="fa-solid ${icon}"></i><span>${message}</span>`;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => toast.classList.remove('translate-y-2', 'opacity-0'));
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3400);
+    }
+
+    // Client-Side Image Upload & Automatic Compression
+    function handleImageUpload(event, targetInputId, previewImgId) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const MAX_WIDTH = 700;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+          document.getElementById(targetInputId).value = compressedDataUrl;
+          if (previewImgId) {
+            document.getElementById(previewImgId).src = compressedDataUrl;
+          }
+          showToast('Η φωτογραφία του έργου φορτώθηκε!');
+        };
+        img.onerror = function() {
+        showToast('Δεν μπόρεσα να διαβάσω αυτή τη φωτογραφία. Δοκιμάστε JPG ή PNG.', 'error');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // =========================================================================
+    // RENDER FUNCTIONS
+    // =========================================================================
+
+    function renderAll() {
+      updateAdminUIState();
+      renderHero();
+      renderExhibition();
+      renderFeaturedWork();
+      renderDiary();
+      renderGalleryFilters();
+      renderGallery();
+      renderAbout();
+      renderCraft();
+      renderContactInfo();
+      renderAdminLists();
+    }
+
+    function renderHero() {
+      const h = appState.hero;
+      const container = document.getElementById('hero-dynamic-container');
+      container.innerHTML = `
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 border border-byz-gold bg-byz-vellum px-3.5 py-1.5 rounded-full font-sans text-xs font-bold uppercase tracking-widest text-byz-crimson">
+            <i class="fa-solid fa-cross text-byz-goldDark"></i>
+            <span>Βυζαντινή Παράδοση &bull; Αυθεντικά Υλικά</span>
+          </div>
+
+          <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-byz-crimson leading-[1.08]">
+            ${h.title}
+          </h1>
+
+          <p class="text-byz-umber text-base sm:text-lg max-w-2xl leading-relaxed">
+            ${h.subtitle}
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3.5 pt-2 font-sans">
+            <a href="#gallery" class="bg-byz-crimson text-byz-parchment border border-byz-gold px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide hover:bg-byz-porphyry transition shadow-sm flex items-center gap-2.5">
+              <span>Εξερευνήστε τις Εικόνες</span>
+              <i class="fa-solid fa-arrow-down text-xs text-byz-goldLight"></i>
+            </a>
+            <a href="#about" class="nav-about-link bg-byz-parchment text-byz-crimson border-2 border-byz-crimson px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide hover:bg-byz-crimson hover:text-byz-parchment transition flex items-center gap-2">
+              <span>Ποιος Είμαι</span>
+            </a>
+            ${isAdminLoggedIn ? `
+              <button onclick="openAdminDrawer('featured')" class="bg-byz-vellum text-byz-ink border border-byz-goldDark px-4 py-3.5 rounded-xl font-bold text-xs uppercase cursor-pointer hover:border-byz-crimson">
+                <i class="fa-solid fa-pen mr-1"></i> Αλλαγή Αρχικής
+              </button>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="max-w-md mx-auto bg-byz-porphyry p-3 sm:p-4 rounded-2xl byzantine-frame">
+            <div class="relative aspect-[4/5] rounded-xl overflow-hidden bg-byz-crimson">
+              <img src="${h.image}" alt="${esc(h.caption)}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x750/5C181C/E2C066?text=ΔΙΑ+ΧΕΙΡΟΣ'">
+            </div>
+            <div class="pt-3 pb-1 px-2 text-center">
+              <p class="font-display italic text-base sm:text-lg text-byz-goldLight">${h.caption}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFeaturedWork() {
+      const f = appState.featuredWork;
+      const container = document.getElementById('featured-work-container');
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+          <div class="lg:col-span-5 relative min-h-[340px] sm:min-h-[430px] bg-byz-porphyry overflow-hidden border-b lg:border-b-0 lg:border-r border-byz-gold">
+            <img loading="lazy" src="${f.image}" alt="${esc(f.title)}" class="w-full h-full object-cover absolute inset-0" onerror="this.onerror=null;this.src='https://placehold.co/600x750/3B0D10/E2C066?text=ΕΡΓΟ+ΣΕ+ΕΞΕΛΙΞΗ'">
+            <div class="absolute top-4 left-4">
+              <span class="font-sans bg-byz-porphyry/95 text-byz-goldLight border border-byz-gold px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide shadow-md flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-byz-goldLight animate-ping"></span>
+                ${f.status}
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 p-7 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-2 font-sans">
+                <span class="bg-byz-vellum border border-byz-goldDark/40 text-byz-ink px-3 py-1 rounded-md text-xs font-bold">
+                  <i class="fa-solid fa-ruler-combined mr-1 text-byz-crimson"></i> Διαστάσεις: ${f.dimensions}
+                </span>
+                <span class="bg-byz-vellum border border-byz-goldDark/40 text-byz-ink px-3 py-1 rounded-md text-xs font-bold">
+                  <i class="fa-solid fa-paintbrush mr-1 text-byz-crimson"></i> ${f.technique}
+                </span>
+              </div>
+
+              <h3 class="font-display font-bold text-3xl sm:text-4xl text-byz-crimson leading-tight">
+                ${f.title}
+              </h3>
+
+              <p class="text-byz-umber text-sm sm:text-base leading-relaxed">
+                ${f.description}
+              </p>
+            </div>
+
+            <div class="pt-6 border-t border-byz-gold/30 flex flex-wrap items-center justify-between gap-4 font-sans">
+              <p class="text-xs text-byz-umber italic">
+                Δυνατότητα παραγγελίας αντίστοιχου θέματος στις διαστάσεις που επιθυμείτε.
+              </p>
+              <button onclick="prefillCommission(${jsArg(f.title)}, ${jsArg(f.dimensions)})" class="bg-byz-crimson text-byz-parchment border border-byz-gold px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+                <i class="fa-solid fa-scroll mr-1.5 text-byz-goldLight"></i> Εκδήλωση Ενδιαφέροντος
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGalleryFilters() {
+      const filters = ['Όλα', 'Φορητές Εικόνες', 'Τοιχογραφίες'];
+      const container = document.getElementById('gallery-main-filters');
+      container.innerHTML = filters.map(f => {
+        const isActive = activeGalleryFilter === f;
+        return `
+          <button onclick="setGalleryFilter('${f}')" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition cursor-pointer ${isActive ? 'bg-byz-crimson text-byz-parchment border border-byz-gold shadow-xs' : 'bg-byz-vellum text-byz-ink border border-byz-goldDark/30 hover:border-byz-crimson'}">
+            ${f === 'Όλα' ? 'Όλα τα Έργα' : f}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setGalleryFilter(filter) {
+      activeGalleryFilter = filter;
+      renderGalleryFilters();
+      renderGallery();
+    }
+
+    function getStatusBadgeClass(status) {
+      if (status === 'Ετοιμοπαράδοτο') return 'bg-byz-crimson text-byz-parchment border-byz-gold';
+      if (status === 'Κατόπιν Παραγγελίας') return 'bg-byz-lapis text-white border-byz-goldLight/60';
+      return 'bg-byz-umber text-byz-parchment border-byz-gold/40';
+    }
+
+    function renderGallery() {
+      const search = document.getElementById('gallery-search').value.toLowerCase().trim();
+      const statusFilter = document.getElementById('status-filter').value;
+      const grid = document.getElementById('gallery-grid');
+
+      const filtered = appState.artworks.filter(art => {
+        const matchesCat = activeGalleryFilter === 'Όλα' || art.category === activeGalleryFilter;
+        const matchesStatus = statusFilter === 'Όλα' || art.status === statusFilter;
+        const matchesSearch = !search ||
+          art.title.toLowerCase().includes(search) ||
+          art.technique.toLowerCase().includes(search) ||
+          (art.subcategory && art.subcategory.toLowerCase().includes(search));
+        return matchesCat && matchesStatus && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-14 bg-byz-vellum/60 border border-dashed border-byz-goldDark rounded-2xl">
+            <p class="font-bold text-byz-umber">Δεν βρέθηκαν αγιογραφίες με τα επιλεγμένα φίλτρα.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(art => `
+        <div class="bg-white byzantine-card-frame rounded-2xl overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+          <div>
+            <!-- Ornate Image Container -->
+            <div class="relative aspect-[4/5] bg-byz-porphyry overflow-hidden border-b border-byz-gold">
+              <img loading="lazy" src="${art.image}" alt="${esc(art.title)}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x750/5C181C/E2C066?text=ΑΓΙΟΓΡΑΦΙΑ'">
+
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 font-sans">
+                <span class="bg-byz-parchment/95 text-byz-crimson border border-byz-gold px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider">
+                  ${art.subcategory || art.category}
+                </span>
+              </div>
+
+              <div class="absolute top-3 right-3 font-sans">
+                <span class="border px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider shadow-sm ${getStatusBadgeClass(art.status)}">
+                  ${art.status}
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Details -->
+            <div class="p-5 space-y-2.5">
+              <div class="flex items-center justify-between font-sans text-xs text-byz-goldDark font-bold">
+                <span><i class="fa-solid fa-ruler-combined mr-1"></i> ${art.dimensions}</span>
+                ${art.price ? `<span class="text-byz-crimson font-extrabold">${art.price}</span>` : ''}
+              </div>
+              <h3 class="font-display font-bold text-2xl text-byz-crimson leading-snug">${art.title}</h3>
+              <p class="font-sans text-xs text-byz-umber leading-relaxed">${art.technique}</p>
+            </div>
+          </div>
+
+          <!-- Action Footer -->
+          <div class="px-5 pb-5 pt-2 flex flex-wrap items-center justify-between gap-2 font-sans">
+            ${canPay(art) ? `<button type="button" onclick="openCheckout('${art.id}')" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer"><i class="fa-solid fa-credit-card mr-1.5 text-byz-goldLight"></i> Αγορά τώρα</button>` : ''}
+            <button onclick="openArtworkModal('${art.id}')" class="flex-1 bg-byz-vellum border border-byz-goldDark/60 text-byz-crimson py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider hover:bg-byz-crimson hover:text-byz-parchment transition cursor-pointer">
+              Λεπτομέρειες &amp; Ενδιαφέρον
+            </button>
+
+            ${isAdminLoggedIn ? `
+              <button onclick="editArtwork('${art.id}')" class="p-2.5 border border-byz-goldDark/60 rounded-xl text-xs text-byz-ink hover:bg-byz-crimson hover:text-white transition cursor-pointer" title="Επεξεργασία">
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button onclick="deleteArtwork('${art.id}')" class="p-2.5 border border-byz-goldDark/60 rounded-xl text-xs text-byz-ink hover:bg-byz-crimson hover:text-white transition cursor-pointer" title="Διαγραφή">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderContactInfo() {
+      const linkClass = 'underline decoration-byz-gold underline-offset-4 hover:text-byz-crimson transition';
+
+const addressText = appState.settings.address;
+document.getElementById('contact-address').innerHTML =
+  `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressText)}" target="_blank" rel="noopener" class="${linkClass}">${addressText}</a>`;
+
+document.getElementById('contact-phone').innerHTML = appState.settings.phone
+  .split(/[\/,]/)
+  .map(p => p.trim())
+  .filter(Boolean)
+  .map(p => `<a href="tel:${p.replace(/[^\d+]/g, '')}" class="${linkClass}">${p}</a>`)
+  .join(' / ');
+
+const emailText = appState.settings.email;
+document.getElementById('contact-email').innerHTML =
+  `<a href="mailto:${emailText}" class="${linkClass}">${emailText}</a>`;
+      document.getElementById('contact-hours').textContent = appState.settings.hours;
+      document.getElementById('footer-year').textContent = new Date().getFullYear();
+      document.querySelectorAll('.terms-link').forEach(el => el.classList.toggle('hidden', !TERMS_READY));
+      const badge = document.getElementById('inquiries-badge');
+      const count = appState.inquiries.length;
+      document.getElementById('tab-inquiries-count').textContent = count;
+      if (count > 0 && isAdminLoggedIn) {
+        badge.textContent = count;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    // =========================================================================
+    // ARTWORK DETAILS MODAL & COMMISSION PREFILL
+    // =========================================================================
+
+    function openArtworkModal(id) {
+      const art = appState.artworks.find(a => a.id === id);
+      if (!art) return;
+
+      const body = document.getElementById('artwork-detail-body');
+      body.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-5">
+            <div class="bg-byz-porphyry p-2.5 rounded-xl byzantine-frame">
+              <img src="${art.image}" alt="${esc(art.title)}" class="w-full rounded-lg object-cover">
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2 font-sans">
+              <span class="border px-3 py-1 rounded-full text-xs font-bold ${getStatusBadgeClass(art.status)}">${art.status}</span>
+              <span class="bg-byz-vellum border border-byz-goldDark/40 px-3 py-1 rounded-full text-xs font-bold text-byz-ink">${art.category}</span>
+            </div>
+
+            <h3 class="font-display font-bold text-3xl text-byz-crimson">${art.title}</h3>
+
+            <div class="bg-byz-vellum/80 border border-byz-gold/50 rounded-xl p-4 space-y-2 font-sans text-xs sm:text-sm">
+              <p><strong>Διαστάσεις:</strong> ${art.dimensions}</p>
+              <p><strong>Τεχνοτροπία &amp; Υλικά:</strong> ${art.technique}</p>
+              ${art.price ? `<p><strong>Τιμή / Εκτίμηση:</strong> <span class="text-byz-crimson font-extrabold">${art.price}</span></p>` : ''}
+            </div>
+
+            <p class="text-byz-umber text-sm leading-relaxed">
+              ${art.description || 'Αυθεντική χειροποίητη βυζαντινή αγιογραφία κατασκευασμένη εξ ολοκλήρου στο εργαστήριό μας.'}
+            </p>
+
+            <div class="pt-3 flex flex-wrap gap-3 font-sans">
+              ${canPay(art) ? `<button type="button" onclick="openCheckout('${art.id}')" class="w-full bg-byz-crimson text-byz-parchment border border-byz-gold py-3 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer"><i class="fa-solid fa-credit-card mr-1.5 text-byz-goldLight"></i> Αγορά τώρα</button>` : ''}
+              <button onclick="closeArtworkModal(); prefillCommission(${jsArg(art.title)}, ${jsArg(art.dimensions)})" class="flex-1 bg-byz-crimson text-byz-parchment border border-byz-gold py-3 px-5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer">
+                <i class="fa-solid fa-scroll mr-1.5 text-byz-goldLight"></i> Ζητήστε την Εικόνα / Παραγγελία
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('artwork-detail-modal').classList.remove('hidden');
+    }
+
+    function closeArtworkModal() {
+      document.getElementById('artwork-detail-modal').classList.add('hidden');
+    }
+
+    function prefillCommission(title, dimensions) {
+      const dimText = dimensions || '';
+      const m = dimText.match(/(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)/i);
+      const toCm = (s) => {
+        const n = parseFloat(s.replace(',', '.'));
+        return dimText.includes('μ.') ? Math.round(n * 100) : n;
+      };
+      document.getElementById('comm-width').value = m ? toCm(m[1]) : '';
+      document.getElementById('comm-height').value = m ? toCm(m[2]) : '';
+      document.getElementById('comm-notes').value = `Ενδιαφέρομαι για το έργο: «${title}». Παρακαλώ ενημερώστε με για τη διαθεσιμότητα ή τον χρόνο αγιογράφησης.`;
+      document.getElementById('commission').scrollIntoView({ behavior: 'smooth' });
+      showToast('Η φόρμα παραγγελίας συμπληρώθηκε με το επιλεγμένο έργο.');
+    }
+
+    function submitCommissionForm(event) {
+      event.preventDefault();
+      const w = document.getElementById('comm-width').value.trim();
+      const h = document.getElementById('comm-height').value.trim();
+      const inquiry = {
+        id: 'inq_' + Date.now(),
+        date: new Date().toLocaleDateString('el-GR'),
+        name: document.getElementById('comm-name').value.trim(),
+        phone: document.getElementById('comm-phone').value.trim(),
+        email: document.getElementById('comm-email').value.trim(),
+        type: document.getElementById('comm-type').value,
+        dimensions: (w || h) ? `${w || '?'} x ${h || '?'} εκ.` : 'Δεν ορίστηκαν',
+        notes: document.getElementById('comm-notes').value.trim()
+      };
+
+      appState.inquiries.unshift(inquiry);
+      persistState();
+      renderContactInfo();
+      renderAdminLists();
+      event.target.reset();
+      showToast('Το αίτημά σας καταχωρήθηκε! Θα επικοινωνήσουμε σύντομα μαζί σας.');
+    }
+
+    // =========================================================================
+    // ADMIN AUTHENTICATION & PANEL LOGIC
+    // =========================================================================
+
+    function handleAdminButtonClick() {
+      if (isAdminLoggedIn) {
+        openAdminDrawer('inquiries');
+      } else {
+        document.getElementById('admin-pin-input').value = '';
+        document.getElementById('admin-login-modal').classList.remove('hidden');
+        setTimeout(() => document.getElementById('admin-pin-input').focus(), 100);
+      }
+    }
+
+    function closeAdminLoginModal() {
+      document.getElementById('admin-login-modal').classList.add('hidden');
+    }
+
+    function submitAdminLogin(event) {
+      event.preventDefault();
+      const entered = document.getElementById('admin-pin-input').value.trim();
+      if (entered === appState.pin) {
+        unlockAdmin();
+      } else {
+        showToast('Λάθος κωδικός PIN.', 'error');
+      }
+    }
+
+    function unlockAdmin() {
+      isAdminLoggedIn = true;
+      sessionStorage.setItem('diacheiros_admin_auth', 'true');
+      closeAdminLoginModal();
+      renderAll();
+      openAdminDrawer('inquiries');
+      showToast('Καλώς ήρθατε στη Διαχείριση του Εργαστηρίου!');
+    }
+
+    function logoutAdmin() {
+      isAdminLoggedIn = false;
+      sessionStorage.removeItem('diacheiros_admin_auth');
+      closeAdminDrawer();
+      renderAll();
+      showToast('Αποσυνδεθήκατε από το Admin Mode.');
+    }
+
+    function updateAdminUIState() {
+      const topBar = document.getElementById('admin-active-bar');
+      const lockIcon = document.getElementById('admin-lock-icon');
+      const adminEls = document.querySelectorAll('.admin-only-el');
+
+      if (isAdminLoggedIn) {
+        topBar.classList.remove('hidden');
+        lockIcon.className = 'fa-solid fa-lock-open text-[11px] text-byz-crimson';
+        adminEls.forEach(el => el.classList.remove('hidden'));
+      } else {
+        topBar.classList.add('hidden');
+        lockIcon.className = 'fa-solid fa-lock text-[11px] text-byz-goldDark';
+        adminEls.forEach(el => el.classList.add('hidden'));
+      }
+    }
+
+    function openAdminDrawer(tabName = 'artworks') {
+      if (!isAdminLoggedIn) {
+        handleAdminButtonClick();
+        return;
+      }
+      populateAdminForms();
+      switchAdminTab(tabName);
+      document.getElementById('admin-drawer-overlay').classList.remove('hidden');
+    }
+
+    function closeAdminDrawer() {
+      document.getElementById('admin-drawer-overlay').classList.add('hidden');
+    }
+
+    function switchAdminTab(tabName) {
+      document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+        btn.classList.remove('border-byz-crimson', 'bg-byz-parchment', 'text-byz-crimson');
+        btn.classList.add('border-transparent', 'text-byz-umber');
+      });
+
+      document.getElementById(`admin-tab-${tabName}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+      activeBtn.classList.remove('border-transparent', 'text-byz-umber');
+      activeBtn.classList.add('border-byz-crimson', 'bg-byz-parchment', 'text-byz-crimson');
+    }
+
+    function populateAdminForms() {
+      updateContentSyncNote(); // Προεπισκόπηση φόρμας έργου
+      if (!document.getElementById('edit-artwork-id').value) {
+        const defaultPreview = appState.hero.image;
+        document.getElementById('admin-art-image').value = defaultPreview;
+        document.getElementById('admin-art-preview').src = defaultPreview;
+      }
+
+      // Featured Work Form
+      const f = appState.featuredWork;
+      document.getElementById('admin-feat-preview').src = f.image;
+      document.getElementById('admin-feat-image').value = f.image;
+      document.getElementById('admin-feat-title').value = f.title;
+      document.getElementById('admin-feat-status').value = f.status;
+            setFeatDimensions(f.dimensions);
+      document.getElementById('admin-feat-technique').value = f.technique;
+      document.getElementById('admin-feat-desc').value = f.description;
+
+      // Hero Form
+      const h = appState.hero;
+      document.getElementById('admin-hero-preview').src = h.image;
+      document.getElementById('admin-hero-image').value = h.image;
+      document.getElementById('admin-hero-title').value = h.title;
+      document.getElementById('admin-hero-subtitle').value = h.subtitle;
+      document.getElementById('admin-hero-caption').value = h.caption;
+
+      // Workshop Settings
+      document.getElementById('admin-set-address').value = appState.settings.address;
+      document.getElementById('admin-set-phone').value = appState.settings.phone;
+      document.getElementById('admin-set-email').value = appState.settings.email;
+      document.getElementById('admin-set-hours').value = appState.settings.hours;
+      document.getElementById('admin-set-pin').value = appState.pin;
+
+      renderAdminLists();
+    }
+
+    function renderAdminLists() {
+      // Artworks Admin List
+      document.getElementById('admin-artworks-count').textContent = appState.artworks.length;
+      const list = document.getElementById('admin-artworks-list');
+      list.innerHTML = appState.artworks.map(art => `
+        <div class="flex items-center justify-between gap-3 p-3 border border-byz-gold/60 rounded-xl bg-white">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="${art.image}" class="w-12 h-14 rounded-lg object-cover border border-byz-gold shrink-0">
+            <div class="truncate">
+              <p class="font-bold text-xs sm:text-sm text-byz-crimson truncate">${art.title}</p>
+              <p class="text-[11px] text-byz-umber">${art.category} &bull; ${art.dimensions} &bull; <strong>${art.status}</strong>${canPay(art) ? ' &bull; πληρωμή online' : ((art.payLink && art.status === 'Ετοιμοπαράδοτο' && !TERMS_READY) ? ' &bull; πληρωμή σε αναμονή (λείπουν οι Όροι Πώλησης)' : '')}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button onclick="editArtwork('${art.id}')" class="px-2.5 py-1.5 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">Επεξ.</button>
+            <button onclick="deleteArtwork('${art.id}')" class="p-2 border border-byz-goldDark/40 rounded-lg text-xs hover:border-byz-crimson transition cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      `).join('');
+
+      // Inquiries Admin List
+      const inqList = document.getElementById('admin-inquiries-list');
+      if (appState.inquiries.length === 0) {
+        inqList.innerHTML = `<p class="text-xs text-byz-umber bg-white p-6 rounded-xl border border-byz-gold/40 text-center">Δεν υπάρχουν καταχωρημένα αιτήματα παραγγελιών.</p>`;
+      } else {
+        inqList.innerHTML = appState.inquiries.map(escInq).map(inq => `
+          <div class="bg-white border border-byz-gold rounded-xl p-4 space-y-2 shadow-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sm text-byz-crimson">${inq.name}</span>
+              <span class="text-[11px] font-semibold text-byz-goldDark">${inq.date}</span>
+            </div>
+            <p class="text-xs font-bold text-byz-ink"><i class="fa-solid fa-palette mr-1 text-byz-crimson"></i> ${inq.type} (${inq.dimensions})</p>
+            <p class="text-xs font-bold text-byz-ink"><i class="fa-solid fa-phone mr-1 text-byz-crimson"></i> ${inq.phone}</p>
+            ${inq.email ? `<p class="text-xs font-bold text-byz-ink"><i class="fa-solid fa-envelope mr-1 text-byz-crimson"></i> ${inq.email}</p>` : ''}
+            <p class="text-xs text-byz-umber bg-byz-parchment/70 p-2.5 rounded-lg">${inq.notes}</p>
+          </div>
+        `).join('');
+      }
+    }
+
+    // =========================================================================
+    // CRUD OPERATIONS
+    // =========================================================================
+
+    function saveArtwork(event) {
+      event.preventDefault();
+      const editId = document.getElementById('edit-artwork-id').value; 
+      const photo = document.getElementById('admin-art-image').value.trim();
+if (!editId && (!photo || photo === appState.hero.image)) { showToast('Διάλεξε πρώτα τη φωτογραφία του έργου.', 'error'); return; }
+      const data = {
+        id: editId || 'art_' + Date.now(),
+        title: document.getElementById('admin-art-title').value.trim(),
+        category: document.getElementById('admin-art-category').value,
+        subcategory: readArtSubcategory(),
+        dimensions: readArtDimensions(),
+        status: document.getElementById('admin-art-status').value,
+        technique: document.getElementById('admin-art-technique').value.trim(),
+        price: readArtPrice(),
+        description: document.getElementById('admin-art-desc').value.trim(),
+        image: document.getElementById('admin-art-image').value.trim(),
+        payLink: document.getElementById('admin-art-paylink').value.trim()
+      };
+
+      if (editId) {
+        const idx = appState.artworks.findIndex(a => a.id === editId);
+        if (idx !== -1) appState.artworks[idx] = data;
+        showToast('Η αγιογραφία ενημερώθηκε!');
+      } else {
+        appState.artworks.unshift(data);
+        showToast('Το νέο έργο προστέθηκε στη συλλογή!');
+      }
+
+      resetArtworkForm();
+      persistState();
+      renderGallery();
+      renderAdminLists();
+    }
+
+    function editArtwork(id) {
+      const art = appState.artworks.find(a => a.id === id);
+      if (!art) return;
+
+      openAdminDrawer('artworks');
+      document.getElementById('edit-artwork-id').value = art.id;
+      document.getElementById('admin-art-title').value = art.title;
+      document.getElementById('admin-art-category').value = art.category;
+      fillSubcategoryOptions(art.subcategory);
+      setArtDimensions(art.dimensions);
+      document.getElementById('admin-art-status').value = art.status;
+      document.getElementById('admin-art-technique').value = art.technique;
+      setArtPrice(art.price);
+      document.getElementById('admin-art-paylink').value = art.payLink || '';
+      document.getElementById('admin-art-desc').value = art.description || '';
+      document.getElementById('admin-art-image').value = art.image;
+      document.getElementById('admin-art-preview').src = art.image;
+
+      document.getElementById('artwork-form-heading').textContent = 'Επεξεργασία Αγιογραφίας';
+      document.getElementById('cancel-artwork-edit-btn').classList.remove('hidden');
+    }
+
+    function resetArtworkForm() {
+      document.getElementById('artwork-form').reset();
+      fillSubcategoryOptions();
+      document.getElementById('edit-artwork-id').value = '';
+      document.getElementById('artwork-form-heading').textContent = 'Προσθήκη Νέας Εικόνας ή Τοιχογραφίας';
+      document.getElementById('cancel-artwork-edit-btn').classList.add('hidden');
+      document.getElementById('admin-art-image').value = appState.hero.image;
+      document.getElementById('admin-art-preview').src = appState.hero.image;
+    }
+
+    function deleteArtwork(id) { if (!confirm('Να διαγραφεί αυτό το έργο από τη συλλογή;')) return;
+      appState.artworks = appState.artworks.filter(a => a.id !== id);
+      persistState();
+      renderGallery();
+      renderAdminLists();
+      showToast('Το έργο διαγράφηκε από τη συλλογή.');
+    }
+
+    function renderExhibition() {
+      const works = appState.exhibition || [];
+      const section = document.getElementById('exhibition');
+      const grid = document.getElementById('exhibition-grid');
+       
+      // Το link «Gallery» στο μενού κρύβεται όσο η έκθεση είναι άδεια (εκτός αν είσαι συνδεδεμένος)
+      const hideNavLink = works.length === 0 && !isAdminLoggedIn;
+      document.querySelectorAll('.nav-exhibition-link').forEach(el => el.classList.toggle('hidden', hideNavLink));
+
+  // Λίστα στο admin
+  document.getElementById('admin-exhibition-count').textContent = works.length;
+  document.getElementById('admin-exhibition-list').innerHTML = works.map(w => `
+    <div class="flex items-center justify-between gap-3 p-3 border border-byz-gold/60 rounded-xl bg-white">
+      <div class="flex items-center gap-3 min-w-0">
+        <img src="${w.image}" class="w-12 h-14 rounded-lg object-cover border border-byz-gold shrink-0">
+        <div class="truncate">
+          <p class="font-bold text-xs sm:text-sm text-byz-crimson truncate">${w.title}</p>
+          <p class="text-[11px] text-byz-umber truncate">${w.subtitle || ''}</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button onclick="editExhibitionWork('${w.id}')" class="px-2.5 py-1.5 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">Επεξ.</button>
+        <button onclick="deleteExhibitionWork('${w.id}')" class="p-2 border border-byz-goldDark/40 rounded-lg text-xs hover:border-byz-crimson transition cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+  `).join('');
+
+  // Η ενότητα κρύβεται όταν είναι άδεια, εκτός αν είσαι συνδεδεμένος
+  if (works.length === 0 && !isAdminLoggedIn) {
+    section.classList.add('hidden');
+    return;
+  }
+  section.classList.remove('hidden');
+
+  if (works.length === 0) {
+    grid.innerHTML = `<p class="sm:col-span-2 lg:col-span-3 text-center text-sm text-byz-umber bg-white border border-byz-gold/40 rounded-xl p-8">Η έκθεση είναι άδεια. Πατήστε «Διαχείριση Έκθεσης» για να προσθέσετε το πρώτο έργο.</p>`;
+    return;
+  }
+
+  grid.innerHTML = works.map(w => `
+    <figure class="bg-white byzantine-card-frame rounded-2xl overflow-hidden group hover:shadow-xl transition-all duration-300">
+      <div class="relative aspect-[4/5] bg-byz-porphyry overflow-hidden border-b border-byz-gold">
+        <img loading="lazy" src="${w.image}" alt="${esc(w.title)}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.onerror=null;this.src='https://placehold.co/600x750/5C181C/E2C066?text=ΕΚΘΕΣΗ'">
+        ${isAdminLoggedIn ? `
+          <div class="absolute top-3 right-3 flex gap-1.5">
+            <button onclick="editExhibitionWork('${w.id}')" class="p-2.5 bg-byz-parchment/95 border border-byz-gold rounded-lg text-xs text-byz-ink hover:bg-byz-crimson hover:text-white transition cursor-pointer" title="Επεξεργασία"><i class="fa-solid fa-pen"></i></button>
+            <button onclick="deleteExhibitionWork('${w.id}')" class="p-2.5 bg-byz-parchment/95 border border-byz-gold rounded-lg text-xs text-byz-ink hover:bg-byz-crimson hover:text-white transition cursor-pointer" title="Διαγραφή"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        ` : ''}
+      </div>
+      <figcaption class="p-5 space-y-2">
+        ${w.subtitle ? `<span class="font-sans text-[11px] font-extrabold uppercase tracking-[0.2em] text-byz-goldDark block">${w.subtitle}</span>` : ''}
+        <h3 class="font-display font-bold text-2xl text-byz-crimson leading-snug">${w.title}</h3>
+        ${w.description ? `<p class="font-sans text-xs text-byz-umber leading-relaxed">${w.description}</p>` : ''}
+      </figcaption>
+    </figure>
+  `).join('');
+}
+
+function saveExhibitionWork(event) {
+  event.preventDefault();
+  if (!appState.exhibition) appState.exhibition = [];
+  const editId = document.getElementById('edit-exhibition-id').value;
+  const data = {
+    id: editId || 'exh_' + Date.now(),
+    title: document.getElementById('admin-exh-title').value.trim(),
+    subtitle: document.getElementById('admin-exh-subtitle').value.trim(),
+    description: document.getElementById('admin-exh-desc').value.trim(),
+    image: document.getElementById('admin-exh-image').value.trim()
+  };
+
+  if (editId) {
+    const idx = appState.exhibition.findIndex(w => w.id === editId);
+    if (idx !== -1) appState.exhibition[idx] = data;
+    showToast('Το έργο της έκθεσης ενημερώθηκε!');
+  } else {
+    appState.exhibition.unshift(data);
+    showToast('Το έργο προστέθηκε στην έκθεση!');
+  }
+
+  resetExhibitionForm();
+  persistState();
+  renderExhibition();
+}
+
+function editExhibitionWork(id) {
+  const w = (appState.exhibition || []).find(x => x.id === id);
+  if (!w) return;
+
+  openAdminDrawer('exhibition');
+  document.getElementById('edit-exhibition-id').value = w.id;
+  document.getElementById('admin-exh-title').value = w.title;
+  document.getElementById('admin-exh-subtitle').value = w.subtitle || '';
+  document.getElementById('admin-exh-desc').value = w.description || '';
+  document.getElementById('admin-exh-image').value = w.image;
+  document.getElementById('admin-exh-preview').src = w.image;
+
+  document.getElementById('exhibition-form-heading').textContent = 'Επεξεργασία Έργου Έκθεσης';
+  document.getElementById('cancel-exhibition-edit-btn').classList.remove('hidden');
+}
+
+function resetExhibitionForm() {
+  document.getElementById('exhibition-form').reset();
+  document.getElementById('edit-exhibition-id').value = '';
+  document.getElementById('admin-exh-preview').src = '';
+  document.getElementById('exhibition-form-heading').textContent = 'Προσθήκη Έργου στην Έκθεση';
+  document.getElementById('cancel-exhibition-edit-btn').classList.add('hidden');
+}
+
+function deleteExhibitionWork(id) {
+  if (!confirm('Να διαγραφεί αυτό το έργο από την έκθεση;')) return;
+  appState.exhibition = (appState.exhibition || []).filter(w => w.id !== id);
+  persistState();
+  renderExhibition();
+  showToast('Το έργο διαγράφηκε από την έκθεση.');
+}
+
+    function saveFeaturedWork(event) {
+      event.preventDefault();
+      appState.featuredWork = {
+        image: document.getElementById('admin-feat-image').value.trim(),
+        title: document.getElementById('admin-feat-title').value.trim(),
+        status: document.getElementById('admin-feat-status').value.trim(),
+                dimensions: readFeatDimensions(),
+        technique: document.getElementById('admin-feat-technique').value.trim(),
+        description: document.getElementById('admin-feat-desc').value.trim()
+      };
+      persistState();
+      renderFeaturedWork();
+      showToast('Το «Έργο σε Εξέλιξη» ενημερώθηκε!');
+    }
+
+    function saveHeroSettings(event) {
+      event.preventDefault();
+      appState.hero = {
+        image: document.getElementById('admin-hero-image').value.trim(),
+        title: document.getElementById('admin-hero-title').value.trim(),
+        subtitle: document.getElementById('admin-hero-subtitle').value.trim(),
+        caption: document.getElementById('admin-hero-caption').value.trim()
+      };
+      persistState();
+      renderHero();
+      renderAbout(); showToast('Η αρχική σελίδα ενημερώθηκε!');
+    }
+
+    function clearInquiries() {
+      appState.inquiries = [];
+      persistState();
+      renderContactInfo();
+      renderAdminLists();
+      showToast('Τα αιτήματα καθαρίστηκαν.');
+    }
+
+    function saveWorkshopSettings(event) {
+      event.preventDefault();
+      appState.settings.address = document.getElementById('admin-set-address').value.trim();
+      appState.settings.phone = document.getElementById('admin-set-phone').value.trim();
+      appState.settings.email = document.getElementById('admin-set-email').value.trim();
+      appState.settings.hours = document.getElementById('admin-set-hours').value.trim();
+
+      const newPin = document.getElementById('admin-set-pin').value.trim();
+      if (newPin.length >= 4) appState.pin = newPin;
+
+      persistState();
+      renderContactInfo();
+      showToast('Τα στοιχεία του εργαστηρίου αποθηκεύτηκαν!');
+    }
+
+    function exportBackupJSON() {
+      const { pin, ...backupData } = appState;
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backupData, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute('href', dataStr);
+      dlAnchor.setAttribute('download', `dia-cheiros-backup-${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      showToast('Το αρχείο backup κατέβηκε!');
+    }
+
+    function importBackupJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed.artworks && parsed.featuredWork && parsed.hero) {
+            appState = { inquiries: [], ...parsed, pin: appState.pin };
+            persistState();
+            renderAll();
+            populateAdminForms();
+            showToast('Η επαναφορά δεδομένων ολοκληρώθηκε!');
+          } else {
+            showToast('Μη έγκυρο αρχείο backup.', 'error');
+          }
+        } catch (err) {
+          showToast('Σφάλμα ανάγνωσης αρχείου.', 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetToDefaultState() {
+      appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      persistState();
+      renderAll();
+      populateAdminForms();
+      showToast('Έγινε επαναφορά στα αρχικά δεδομένα του εργαστηρίου.');
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('mobile-menu-icon');
+      menu.classList.toggle('hidden');
+      icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-base' : 'fa-solid fa-xmark text-base';
+    }
+
+    // Σύρσιμο της μπάρας καρτελών του admin με το ποντίκι
+(function () {
+  const bar = document.getElementById('admin-tabs-bar');
+  if (!bar) return;
+  let isDown = false;
+  let moved = false;
+  let startX = 0;
+  let startScroll = 0;
+
+  bar.addEventListener('mousedown', (e) => {
+    isDown = true;
+    moved = false;
+    startX = e.pageX;
+    startScroll = bar.scrollLeft;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const dx = e.pageX - startX;
+    if (Math.abs(dx) > 5) moved = true;
+    bar.scrollLeft = startScroll - dx;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+
+  // Αν έγινε σύρσιμο, να μην πατηθεί κατά λάθος κάποια καρτέλα
+  bar.addEventListener('click', (e) => {
+    if (moved) {
+      e.stopPropagation();
+      e.preventDefault();
+      moved = false;
+    }
+  }, true);
+})();
+
+// Μεγέθυνση φωτογραφίας με κλικ (συλλογή, έκθεση, έργο σε εξέλιξη)
+(function () {
+  const overlay = document.createElement('div');
+  overlay.id = 'lightbox';
+  overlay.className = 'hidden fixed inset-0 z-[90] bg-black/90 flex items-center justify-center p-4 sm:p-8 cursor-zoom-out';
+  overlay.innerHTML = `
+    <button type="button" class="absolute top-4 right-4 w-11 h-11 rounded-xl border border-byz-gold bg-byz-crimson text-byz-parchment text-lg cursor-pointer" aria-label="Κλείσιμο">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg border-2 border-byz-gold shadow-2xl">
+  `;
+  document.body.appendChild(overlay);
+
+  const lightboxImg = overlay.querySelector('#lightbox-img');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    overlay.classList.add('hidden');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  overlay.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  ['gallery-grid', 'exhibition-grid', 'featured-work-container', 'diary-container'].forEach((id) => {
+    const area = document.getElementById(id);
+    if (!area) return;
+    area.addEventListener('click', (e) => {
+      const el = e.target;
+      if (el.tagName === 'IMG' && el.src) openLightbox(el.src, el.alt);
+    });
+  });
+})();
+
+function openPrivacy() {
+  document.getElementById('privacy-modal').classList.remove('hidden');
+}
+
+function closePrivacy() {
+  document.getElementById('privacy-modal').classList.add('hidden');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePrivacy();
+});
+
+function renderAbout() {
+  const a = appState.about || {};
+  const section = document.getElementById('about');
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  const texts = [a.text1, a.text2, a.text3].filter(t => t && t.trim());
+  const stats = [1, 2, 3]
+    .map(i => ({ num: a['stat' + i + 'Num'], label: a['stat' + i + 'Label'] }))
+    .filter(s => s.num && s.num.trim() && s.label && s.label.trim());
+  const hasContent = Boolean(a.photo) || texts.length > 0 || stats.length > 0;
+
+
+  // Τα links «Ποιος Είμαι» στο μενού κρύβονται όσο η ενότητα είναι άδεια (εκτός αν είσαι συνδεδεμένος)
+  document.querySelectorAll('.nav-about-link').forEach(el => el.classList.toggle('hidden', !hasContent && !isAdminLoggedIn));
+  
+
+  if (!hasContent && !isAdminLoggedIn) {
+    section.classList.add('hidden');
+    return;
+  }
+  section.classList.remove('hidden');
+
+  const photoHtml = a.photo
+    ? `<img src="${a.photo}" alt="Ο αγιογράφος" class="absolute inset-0 w-full h-full object-cover">`
+    : '';
+
+  const adminBtn = isAdminLoggedIn
+    ? `<button onclick="openAdminDrawer('about'); fillAboutForm()" class="shrink-0 font-sans bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer"><i class="fa-solid fa-pen-to-square mr-1.5"></i> Διαχείριση</button>`
+    : '';
+
+  const emptyNote = !hasContent
+    ? `<p class="font-sans text-sm text-byz-umber bg-white border border-byz-gold/40 rounded-xl p-6">Η ενότητα είναι άδεια. Πατήστε «Διαχείριση» για να προσθέσετε τη φωτογραφία και τα κείμενά σας.</p>`
+    : '';
+
+  const statsHtml = stats.length
+    ? `<div class="grid grid-cols-3 gap-3 pt-2">${stats.map(s => `
+        <div class="bg-white border border-byz-gold/60 rounded-xl p-4 text-center">
+          <p class="font-display font-bold text-2xl sm:text-3xl text-byz-crimson">${esc(s.num)}</p>
+          <p class="font-sans text-[11px] font-bold uppercase tracking-wider text-byz-umber mt-1">${esc(s.label)}</p>
+        </div>`).join('')}</div>`
+    : '';
+
+  document.getElementById('about-content').innerHTML = `
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div class="lg:col-span-5">
+        <div class="relative aspect-[4/5] bg-byz-porphyry byzantine-card-frame rounded-2xl overflow-hidden flex items-center justify-center text-byz-goldLight">
+          <i class="fa-solid fa-cross text-6xl opacity-60"></i>
+          ${photoHtml}
+        </div>
+      </div>
+      <div class="lg:col-span-7 space-y-5">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span class="font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-byz-goldDark block mb-2">Ο ΑΓΙΟΓΡΑΦΟΣ</span>
+            <h2 class="font-display font-bold text-3xl sm:text-5xl text-byz-crimson">Ποιος Είμαι</h2>
+          </div>
+          ${adminBtn}
+        </div>
+        ${emptyNote}
+        ${texts.map(t => `<p class="font-sans text-sm sm:text-base text-byz-umber leading-relaxed">${esc(t)}</p>`).join('')}
+        ${statsHtml}
+        <a href="#commission" class="inline-flex items-center gap-2 bg-byz-crimson text-byz-parchment border border-byz-gold px-6 py-3 rounded-xl font-sans font-bold text-sm hover:bg-byz-porphyry transition">
+          Αίτημα Παραγγελίας <i class="fa-solid fa-arrow-down text-byz-goldLight text-xs"></i>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function fillAboutForm() {
+  const a = appState.about || {};
+  document.getElementById('admin-about-photo').value = a.photo || '';
+  document.getElementById('admin-about-preview').src = a.photo || '';
+  document.getElementById('admin-about-text1').value = a.text1 || '';
+  document.getElementById('admin-about-text2').value = a.text2 || '';
+  document.getElementById('admin-about-text3').value = a.text3 || '';
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('admin-about-stat' + i + '-num').value = a['stat' + i + 'Num'] || '';
+    document.getElementById('admin-about-stat' + i + '-label').value = a['stat' + i + 'Label'] || '';
+  }
+}
+
+function clearAboutPhoto() {
+  document.getElementById('admin-about-photo').value = '';
+  document.getElementById('admin-about-preview').src = '';
+}
+
+function saveAbout(event) {
+  event.preventDefault();
+  const about = {
+    photo: document.getElementById('admin-about-photo').value.trim(),
+    text1: document.getElementById('admin-about-text1').value.trim(),
+    text2: document.getElementById('admin-about-text2').value.trim(),
+    text3: document.getElementById('admin-about-text3').value.trim()
+  };
+  for (let i = 1; i <= 3; i++) {
+    about['stat' + i + 'Num'] = document.getElementById('admin-about-stat' + i + '-num').value.trim();
+    about['stat' + i + 'Label'] = document.getElementById('admin-about-stat' + i + '-label').value.trim();
+  }
+  appState.about = about;
+  persistState();
+  renderAbout();
+  showToast('Η ενότητα «Ποιος Είμαι» αποθηκεύτηκε!');
+}
+
+// Τα τέσσερα στάδια της τεχνικής (αρχικά κείμενα — αλλάζουν από το admin)
+const CRAFT_DEFAULTS = [
+  {
+    id: 'craft1',
+    letter: 'Α΄',
+    title: 'Προετοιμασία Ξύλου & Κρητικός Γύψος',
+    summary: 'Επιλέγουμε ξερό ξύλο φλαμουριάς ή κυπαρισσιού με τρέσες, λινό ύφασμα και 8 έως 12 στρώσεις παραδοσιακού κρητικού γύψου με φυσική κουνελόκολλα.',
+    details: 'Το ξύλο επιλέγεται ξερό, ώστε να μη σκάει και να μη στραβώνει με τα χρόνια. Στο πίσω μέρος μπαίνουν τρέσες που κρατούν τη σανίδα ίσια.\n\nΗ επιφάνεια καλύπτεται με λινό ύφασμα κολλημένο με φυσική κουνελόκολλα, και ακολουθούν 8 έως 12 στρώσεις κρητικού γύψου. Κάθε στρώση στεγνώνει και λειαίνεται, μέχρι η επιφάνεια να γίνει τελείως λεία και έτοιμη για το χρυσό.',
+    image: ''
+  },
+  {
+    id: 'craft2',
+    letter: 'Β΄',
+    title: 'Χρύσωμα με Φύλλο Χρυσού 24Κ',
+    summary: 'Εφαρμογή γνήσιου φύλλου χρυσού 24 καρατίων πάνω σε αρμενικό αμπόλι, στιλβωμένο στο χέρι με λίθο αχάτη για το άκτιστο φως του κάμπου.',
+    details: 'Πάνω στον γύψο απλώνεται το αμπόλι, ένας αρμενικός πηλός που δίνει ζεστό βάθος στο χρυσό και κρατά το φύλλο στη θέση του.\n\nΤο φύλλο χρυσού 24 καρατίων τοποθετείται με ελάχιστη υγρασία και στη συνέχεια στιλβώνεται στο χέρι με λίθο αχάτη, ώστε ο κάμπος να αποκτήσει το χαρακτηριστικό φως της βυζαντινής εικόνας.',
+    image: ''
+  },
+  {
+    id: 'craft3',
+    letter: 'Γ΄',
+    title: 'Αυγοτέμπερα & Φυσικές Χρωστικές',
+    summary: 'Ανάμειξη φυσικών γαιωδών χρωστικών σε σκόνη (ώχρες, κιννάβαρι, λάπις λάζουλι, πράσινο της γης) με γαλάκτωμα κρόκου αυγού.',
+    details: 'Οι χρωστικές, δηλαδή ώχρες, κιννάβαρι, λάπις λάζουλι και πράσινο της γης, είναι σκόνες που αναμειγνύονται με γαλάκτωμα κρόκου αυγού.\n\nΤο χρώμα δουλεύεται σε λεπτές στρώσεις, από τα σκούρα προς τα φωτεινά: πρώτα οι προπλασμοί και μετά τα φωτίσματα. Στο τέλος αποδίδονται οι λεπτομέρειες και η χρυσογραφία.',
+    image: ''
+  },
+  {
+    id: 'craft4',
+    letter: 'Δ΄',
+    title: 'Τοιχογραφίες Ιερών Ναών',
+    summary: 'Αρχιτεκτονική και εικονογραφική μελέτη Ιερών Ναών, Παρεκκλησίων και Τέμπλων, με σχεδιασμό ανθιβόλων και επιτόπια ιστόρηση.',
+    details: 'Η δουλειά ξεκινά με τη μελέτη του ναού: την αρχιτεκτονική του, το φως και το ποιες παραστάσεις ταιριάζουν σε κάθε χώρο, από την κόγχη του Ιερού μέχρι τους τοίχους του κυρίως ναού.\n\nΑκολουθεί ο σχεδιασμός της σύνθεσης με τα ανθίβολα και η επιτόπια ιστόρηση με φυσικές γαιώδεις χρωστικές.',
+    image: ''
+  }
+];
+
+let craftModalIndex = 0;
+
+function getCraftStages() {
+  const saved = Array.isArray(appState.craftStages) ? appState.craftStages : [];
+  return CRAFT_DEFAULTS.map(d => ({ ...d, ...(saved.find(s => s.id === d.id) || {}) }));
+}
+
+function renderCraft() {
+  const grid = document.getElementById('craft-grid');
+  if (!grid) return;
+  const stages = getCraftStages();
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  const adminBar = isAdminLoggedIn
+    ? `<div class="sm:col-span-2 lg:col-span-4 text-center">
+         <button type="button" onclick="openAdminDrawer('craft'); fillCraftForm()" class="font-sans bg-byz-gold text-byz-porphyry px-4 py-2.5 rounded-lg text-xs font-extrabold uppercase tracking-wider hover:bg-byz-goldLight transition cursor-pointer"><i class="fa-solid fa-pen-to-square mr-1.5"></i> Διαχείριση Σταδίων</button>
+       </div>`
+    : '';
+
+  grid.innerHTML = adminBar + stages.map((s, i) => `
+    <button type="button" onclick="openCraftModal(${i})" class="group text-left bg-byz-crimson/40 border border-byz-gold/50 rounded-xl p-6 space-y-4 hover:border-byz-goldLight transition cursor-pointer">
+      <span class="w-12 h-12 rounded-full bg-byz-porphyry border border-byz-gold flex items-center justify-center font-display font-bold text-xl text-byz-goldLight">${esc(s.letter)}</span>
+      <span class="block font-display font-bold text-2xl text-byz-goldLight">${esc(s.title)}</span>
+      <span class="block text-byz-vellum/80 text-sm leading-relaxed">${esc(s.summary)}</span>
+      <span class="inline-flex items-center gap-2 font-sans text-xs font-extrabold uppercase tracking-wider text-byz-goldLight">Δείτε περισσότερα <i class="fa-solid fa-arrow-right text-[10px] transition-transform group-hover:translate-x-1"></i></span>
+    </button>
+  `).join('');
+
+  // Λίστα σταδίων στο admin
+  const sel = document.getElementById('admin-craft-select');
+  if (sel) {
+    const current = sel.value;
+    sel.innerHTML = stages.map(s => `<option value="${s.id}">${esc(s.letter)} — ${esc(s.title)}</option>`).join('');
+    if (current) sel.value = current;
+  }
+}
+
+function openCraftModal(i) {
+  const stages = getCraftStages();
+  const s = stages[i];
+  if (!s) return;
+  craftModalIndex = i;
+
+  document.getElementById('craft-modal-label').textContent = `Στάδιο ${i + 1} από ${stages.length}`;
+  document.getElementById('craft-modal-title').textContent = s.title;
+  document.getElementById('craft-modal-text').textContent = (s.details && s.details.trim()) ? s.details : s.summary;
+
+  const img = document.getElementById('craft-modal-img');
+  const letter = document.getElementById('craft-modal-letter');
+  letter.textContent = s.letter;
+  if (s.image) {
+    img.onerror = () => { img.classList.add('hidden'); letter.classList.remove('hidden'); };
+    img.src = s.image;
+    img.alt = s.title;
+    img.classList.remove('hidden');
+    letter.classList.add('hidden');
+  } else {
+    img.removeAttribute('src');
+    img.classList.add('hidden');
+    letter.classList.remove('hidden');
+  }
+
+  const modal = document.getElementById('craft-modal');
+  modal.querySelector('.overflow-y-auto').scrollTop = 0;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCraftModal() {
+  document.getElementById('craft-modal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function stepCraftModal(direction) {
+  const n = getCraftStages().length;
+  openCraftModal((craftModalIndex + direction + n) % n);
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCraftModal();
+});
+
+function fillCraftForm() {
+  const sel = document.getElementById('admin-craft-select');
+  const s = getCraftStages().find(x => x.id === sel.value);
+  if (!s) return;
+  document.getElementById('admin-craft-image').value = s.image || '';
+  document.getElementById('admin-craft-preview').src = s.image || '';
+  document.getElementById('admin-craft-title').value = s.title;
+  document.getElementById('admin-craft-summary').value = s.summary;
+  document.getElementById('admin-craft-details').value = s.details || '';
+}
+
+function clearCraftPhoto() {
+  document.getElementById('admin-craft-image').value = '';
+  document.getElementById('admin-craft-preview').src = '';
+}
+
+function saveCraftStage(event) {
+  event.preventDefault();
+  const id = document.getElementById('admin-craft-select').value;
+  const stages = getCraftStages();
+  const idx = stages.findIndex(s => s.id === id);
+  if (idx === -1) return;
+
+  stages[idx] = {
+    ...stages[idx],
+    image: document.getElementById('admin-craft-image').value.trim(),
+    title: document.getElementById('admin-craft-title').value.trim(),
+    summary: document.getElementById('admin-craft-summary').value.trim(),
+    details: document.getElementById('admin-craft-details').value.trim()
+  };
+  appState.craftStages = stages;
+  persistState();
+  renderCraft();
+  showToast('Το στάδιο αποθηκεύτηκε!');
+}
+
+// =========================================================================
+// ΗΜΕΡΟΛΟΓΙΟ ΕΡΓΟΥ
+// =========================================================================
+let diaryShowAll = false;
+
+function todayLocal() {
+  const d = new Date();
+  return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+}
+
+function formatDiaryDate(d) {
+  if (!d) return '';
+  const t = new Date(d + 'T00:00:00');
+  return isNaN(t) ? d : t.toLocaleDateString('el-GR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+function getSortedDiary() {
+  return [...(appState.diary || [])].sort((a, b) =>
+    String(b.date || '').localeCompare(String(a.date || '')) || String(b.id).localeCompare(String(a.id))
+  );
+}
+
+function renderDiary() {
+  const box = document.getElementById('diary-container');
+  if (!box) return;
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const entries = getSortedDiary();
+
+  // Λίστα στο admin
+  const countEl = document.getElementById('admin-diary-count');
+  const listEl = document.getElementById('admin-diary-list');
+  if (countEl) countEl.textContent = entries.length;
+  if (listEl) {
+    listEl.innerHTML = entries.length === 0
+      ? `<p class="text-xs text-byz-umber bg-white p-6 rounded-xl border border-byz-gold/40 text-center">Δεν υπάρχουν ενημερώσεις ακόμα.</p>`
+      : entries.map(e => `
+        <div class="flex items-center justify-between gap-3 p-3 border border-byz-gold/60 rounded-xl bg-white">
+          <div class="flex items-center gap-3 min-w-0">
+            ${e.image ? `<img src="${esc(e.image)}" class="w-12 h-14 rounded-lg object-cover border border-byz-gold shrink-0">` : `<div class="w-12 h-14 rounded-lg border border-byz-gold/60 bg-byz-vellum flex items-center justify-center text-byz-goldDark shrink-0"><i class="fa-regular fa-note-sticky"></i></div>`}
+            <div class="min-w-0">
+              <p class="text-[11px] font-bold text-byz-goldDark">${esc(formatDiaryDate(e.date))}</p>
+              <p class="font-bold text-xs sm:text-sm text-byz-crimson truncate">${esc(e.text)}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button type="button" onclick="editDiary('${e.id}')" class="px-2.5 py-1.5 border border-byz-crimson text-byz-crimson rounded-lg text-xs font-bold hover:bg-byz-crimson hover:text-white transition cursor-pointer">Επεξ.</button>
+            <button type="button" onclick="deleteDiary('${e.id}')" class="p-2 border border-byz-goldDark/40 rounded-lg text-xs hover:border-byz-crimson transition cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      `).join('');
+  }
+
+  // Στη σελίδα: οι επισκέπτες δεν βλέπουν τίποτα αν δεν υπάρχουν ενημερώσεις
+  if (entries.length === 0 && !isAdminLoggedIn) {
+    box.innerHTML = '';
+    return;
+  }
+
+  const manageBtn = isAdminLoggedIn
+    ? `<button type="button" onclick="openAdminDrawer('diary'); prepareDiaryForm()" class="shrink-0 font-sans bg-byz-crimson text-byz-parchment border border-byz-gold px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-byz-porphyry transition cursor-pointer"><i class="fa-solid fa-pen-to-square mr-1.5"></i> Διαχείριση Ημερολογίου</button>`
+    : '';
+
+  const header = `
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+      <div>
+        <span class="font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-byz-goldDark block mb-2">ΠΩΣ ΠΡΟΧΩΡΑ ΤΟ ΕΡΓΟ</span>
+        <h3 class="font-display font-bold text-2xl sm:text-4xl text-byz-crimson">Ημερολόγιο Έργου</h3>
+      </div>
+      ${manageBtn}
+    </div>`;
+
+  if (entries.length === 0) {
+    box.innerHTML = header + `<p class="font-sans text-sm text-byz-umber bg-white border border-byz-gold/40 rounded-xl p-6 text-center">Το ημερολόγιο είναι άδειο. Πατήστε «Διαχείριση Ημερολογίου» για να προσθέσετε την πρώτη ενημέρωση.</p>`;
+    return;
+  }
+
+  const LIMIT = 6;
+  const visible = diaryShowAll ? entries : entries.slice(0, LIMIT);
+
+  box.innerHTML = header + `
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      ${visible.map(e => `
+        <article class="bg-white byzantine-card-frame rounded-2xl overflow-hidden flex flex-col">
+          ${e.image ? `<div class="aspect-[4/3] bg-byz-porphyry overflow-hidden border-b border-byz-gold"><img loading="lazy" src="${esc(e.image)}" alt="${esc(formatDiaryDate(e.date))}" class="w-full h-full object-cover cursor-zoom-in"></div>` : ''}
+          <div class="p-5 space-y-2">
+            <span class="font-sans text-[11px] font-extrabold uppercase tracking-[0.2em] text-byz-goldDark block"><i class="fa-regular fa-calendar mr-1.5"></i>${esc(formatDiaryDate(e.date))}</span>
+            <p class="font-sans text-sm text-byz-umber leading-relaxed whitespace-pre-line">${esc(e.text)}</p>
+          </div>
+        </article>
+      `).join('')}
+    </div>
+    ${entries.length > LIMIT ? `
+      <div class="text-center mt-8">
+        <button type="button" onclick="toggleDiaryAll()" class="font-sans border-2 border-byz-crimson text-byz-crimson px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-byz-crimson hover:text-byz-parchment transition cursor-pointer">
+          ${diaryShowAll ? 'Λιγότερες ενημερώσεις' : `Δείτε όλες τις ενημερώσεις (${entries.length})`}
+        </button>
+      </div>` : ''}
+  `;
+}
+
+function toggleDiaryAll() {
+  diaryShowAll = !diaryShowAll;
+  renderDiary();
+}
+
+function prepareDiaryForm() {
+  if (!document.getElementById('edit-diary-id').value && !document.getElementById('admin-diary-date').value) {
+    document.getElementById('admin-diary-date').value = todayLocal();
+  }
+}
+
+function clearDiaryPhoto() {
+  document.getElementById('admin-diary-image').value = '';
+  document.getElementById('admin-diary-preview').src = '';
+}
+
+function saveDiaryEntry(event) {
+  event.preventDefault();
+  if (!appState.diary) appState.diary = [];
+  const editId = document.getElementById('edit-diary-id').value;
+  const data = {
+    id: editId || 'diary_' + Date.now(),
+    date: document.getElementById('admin-diary-date').value,
+    text: document.getElementById('admin-diary-text').value.trim(),
+    image: document.getElementById('admin-diary-image').value.trim()
+  };
+
+  if (editId) {
+    const idx = appState.diary.findIndex(x => x.id === editId);
+    if (idx !== -1) appState.diary[idx] = data;
+    showToast('Η ενημέρωση άλλαξε!');
+  } else {
+    appState.diary.push(data);
+    showToast('Η ενημέρωση προστέθηκε στο ημερολόγιο!');
+  }
+
+  resetDiaryForm();
+  persistState();
+  renderDiary();
+}
+
+function editDiary(id) {
+  const e = (appState.diary || []).find(x => x.id === id);
+  if (!e) return;
+
+  openAdminDrawer('diary');
+  document.getElementById('edit-diary-id').value = e.id;
+  document.getElementById('admin-diary-date').value = e.date || todayLocal();
+  document.getElementById('admin-diary-text').value = e.text || '';
+  document.getElementById('admin-diary-image').value = e.image || '';
+  document.getElementById('admin-diary-preview').src = e.image || '';
+  document.getElementById('diary-form-heading').textContent = 'Επεξεργασία Ενημέρωσης';
+  document.getElementById('cancel-diary-edit-btn').classList.remove('hidden');
+}
+
+function resetDiaryForm() {
+  document.getElementById('diary-form').reset();
+  document.getElementById('edit-diary-id').value = '';
+  document.getElementById('admin-diary-image').value = '';
+  document.getElementById('admin-diary-preview').src = '';
+  document.getElementById('admin-diary-date').value = todayLocal();
+  document.getElementById('diary-form-heading').textContent = 'Νέα Ενημέρωση Έργου';
+  document.getElementById('cancel-diary-edit-btn').classList.add('hidden');
+}
+
+function deleteDiary(id) {
+  if (!confirm('Να διαγραφεί αυτή η ενημέρωση;')) return;
+  appState.diary = (appState.diary || []).filter(x => x.id !== id);
+  persistState();
+  renderDiary();
+  showToast('Η ενημέρωση διαγράφηκε.');
+}
+
+function clearDiary() {
+  if (!(appState.diary || []).length) return;
+  if (!confirm('Να διαγραφούν ΟΛΕΣ οι ενημερώσεις του ημερολογίου; Δεν γίνεται αναίρεση.')) return;
+  appState.diary = [];
+  diaryShowAll = false;
+  persistState();
+  resetDiaryForm();
+  renderDiary();
+  showToast('Το ημερολόγιο καθαρίστηκε.');
+}
+
+// =========================================================================
+// ΠΛΗΡΩΜΗ ΕΤΟΙΜΟΠΑΡΑΔΟΤΩΝ
+// Το κουμπί εμφανίζεται ΜΟΝΟ σε έργα με κατάσταση «Ετοιμοπαράδοτο»
+// που έχουν σύνδεσμο πληρωμής (https://...)
+// =========================================================================
+let checkoutArtId = null;
+
+function canPay(art) {
+  return Boolean(art)
+    && TERMS_READY && art.status === 'Ετοιμοπαράδοτο'
+    && /^https:\/\//i.test(String(art.payLink || '').trim());
+}
+
+function openCheckout(id) {
+  const art = (appState.artworks || []).find(a => a.id === id);
+  if (!canPay(art)) {
+    showToast('Η πληρωμή online δεν είναι διαθέσιμη για αυτό το έργο.');
+    return;
+  }
+  checkoutArtId = id;
+  closeArtworkModal();
+  document.getElementById('checkout-title').textContent = art.title;
+  document.getElementById('checkout-details').textContent = art.dimensions + (art.price ? ' • ' + art.price : '');
+  document.getElementById('checkout-consent').checked = false;
+  updateCheckoutButton();
+  document.getElementById('checkout-modal').classList.remove('hidden');
+}
+
+function closeCheckout() {
+  const modal = document.getElementById('checkout-modal');
+  if (!modal || modal.classList.contains('hidden')) return;
+  modal.classList.add('hidden');
+  checkoutArtId = null;
+}
+
+function updateCheckoutButton() {
+  const ok = document.getElementById('checkout-consent').checked;
+  const btn = document.getElementById('checkout-pay-btn');
+  btn.disabled = !ok;
+  btn.classList.toggle('opacity-50', !ok);
+  btn.classList.toggle('cursor-not-allowed', !ok);
+  btn.classList.toggle('cursor-pointer', ok);
+}
+
+function confirmCheckout() {
+  const art = (appState.artworks || []).find(a => a.id === checkoutArtId);
+  if (!canPay(art) || !document.getElementById('checkout-consent').checked) return;
+  window.open(String(art.payLink).trim(), '_blank', 'noopener');
+  closeCheckout();
+}
+
+function openTerms() {
+  document.getElementById('terms-modal').classList.remove('hidden');
+}
+
+function closeTerms() {
+  document.getElementById('terms-modal').classList.add('hidden');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  const terms = document.getElementById('terms-modal');
+  if (terms && !terms.classList.contains('hidden')) { closeTerms(); return; }
+  closeCheckout();
+});
+
+// =========================================================================
+// ΦΟΡΜΑ ΕΡΓΟΥ: ΥΠΟΚΑΤΗΓΟΡΙΑ (λίστα), ΔΙΑΣΤΑΣΕΙΣ (αριθμοί), ΤΙΜΗ (αριθμός σε €)
+// =========================================================================
+// Οι υποκατηγορίες που υπάρχουν από την αρχή. Νέες προστίθενται από τη φόρμα
+// με την επιλογή «+ Νέα υποκατηγορία…» και μένουν στη λίστα όσο υπάρχει έργο που τις χρησιμοποιεί.
+const SUBCATEGORY_DEFAULTS = {
+  'Φορητές Εικόνες': ['Δεσποτικές', 'Θεομητορικές', 'Αγίων'],
+  'Τοιχογραφίες': ['Ιεροί Ναοί', 'Παρεκκλήσια']
+};
+
+function getSubcategories(category) {
+  const list = [...(SUBCATEGORY_DEFAULTS[category] || [])];
+  (appState.artworks || []).forEach(a => {
+    if (a.category === category && a.subcategory && !list.includes(a.subcategory)) list.push(a.subcategory);
+  });
+  return list;
+}
+
+function fillSubcategoryOptions(selected) {
+  const sel = document.getElementById('admin-art-subcategory');
+  const extra = document.getElementById('admin-art-subcategory-new');
+  if (!sel || !extra) return;
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const list = getSubcategories(document.getElementById('admin-art-category').value);
+  sel.innerHTML = '<option value="">— Καμία —</option>'
+    + list.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join('')
+    + '<option value="__new__">+ Νέα υποκατηγορία…</option>';
+  sel.value = (selected && list.includes(selected)) ? selected : '';
+  extra.value = '';
+  extra.classList.add('hidden');
+  extra.required = false;
+}
+
+function onSubcategoryChange() {
+  const isNew = document.getElementById('admin-art-subcategory').value === '__new__';
+  const extra = document.getElementById('admin-art-subcategory-new');
+  extra.classList.toggle('hidden', !isNew);
+  extra.required = isNew;
+  if (isNew) extra.focus();
+}
+
+function readArtSubcategory() {
+  const sel = document.getElementById('admin-art-subcategory');
+  return sel.value === '__new__'
+    ? document.getElementById('admin-art-subcategory-new').value.trim()
+    : sel.value;
+}
+
+function readArtDimensions() {
+  const w = parseFloat(document.getElementById('admin-art-width').value);
+  const h = parseFloat(document.getElementById('admin-art-height').value);
+  return `${w} x ${h} εκ.`;
+}
+
+function setArtDimensions(text) {
+  // Διαβάζει π.χ. «30 x 40 εκ.» ή «4.20 x 3.10 μ.» (τα μέτρα γίνονται εκατοστά)
+  const m = String(text || '').match(/(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)\s*(εκ|μ)?/i);
+  let w = '', h = '';
+  if (m) {
+    const k = (m[3] || '').toLowerCase() === 'μ' ? 100 : 1;
+    w = Math.round(parseFloat(m[1].replace(',', '.')) * k * 100) / 100;
+    h = Math.round(parseFloat(m[2].replace(',', '.')) * k * 100) / 100;
+  }
+  document.getElementById('admin-art-width').value = w;
+  document.getElementById('admin-art-height').value = h;
+}
+
+function readArtPrice() {
+  const v = document.getElementById('admin-art-price').value.trim();
+  if (v === '' || isNaN(Number(v))) return '';
+  return Number(v).toLocaleString('el-GR', { maximumFractionDigits: 2 }) + ' €';
+}
+
+function setArtPrice(text) {
+  // Από «420 €» βγάζει 420. Κείμενα όπως «Κατόπιν Μελέτης» αφήνουν το πεδίο κενό.
+  const m = String(text || '').replace(/\s/g, '').match(/\d[\d.,]*/);
+  let value = '';
+  if (m) {
+    const n = parseFloat(m[0].replace(/\./g, '').replace(',', '.'));
+    if (!isNaN(n)) value = n;
+  }
+  document.getElementById('admin-art-price').value = value;
+}
+
+document.getElementById('admin-art-category').addEventListener('change', () => fillSubcategoryOptions());
+document.getElementById('admin-art-subcategory').addEventListener('change', onSubcategoryChange);
+fillSubcategoryOptions();
+
+// Καρτέλα «Αρχική» στο admin: πρώτα η Κεντρική Εικόνα, από κάτω το Έργο σε Εξέλιξη
+(function () {
+  const tab = document.getElementById('admin-tab-featured');
+  if (!tab) return;
+  const hero = tab.querySelector('form[onsubmit^="saveHeroSettings"]');
+  if (hero && tab.firstElementChild !== hero) tab.insertBefore(hero, tab.firstElementChild);
+  tab.querySelectorAll(':scope > form').forEach((form, i) => {
+    const title = form.querySelector('h3');
+    if (title) title.textContent = title.textContent.trim().replace(/^\d+\.\s*/, (i + 1) + '. ');
+  });
+})();
+
+// =========================================================================
+// ΕΡΓΟ ΣΕ ΕΞΕΛΙΞΗ: ΔΙΑΣΤΑΣΕΙΣ (μόνο αριθμοί σε εκατοστά)
+// =========================================================================
+function readFeatDimensions() {
+  const w = parseFloat(document.getElementById('admin-feat-width').value);
+  const h = parseFloat(document.getElementById('admin-feat-height').value);
+  return `${w} x ${h} εκ.`;
+}
+
+function setFeatDimensions(text) {
+  // Διαβάζει π.χ. «35 x 48 εκ.» ή «4.20 x 3.10 μ.» (τα μέτρα γίνονται εκατοστά)
+  const m = String(text || '').match(/(\d+(?:[.,]\d+)?)\s*[x×]\s*(\d+(?:[.,]\d+)?)\s*(εκ|μ)?/i);
+  let w = '', h = '';
+  if (m) {
+    const k = (m[3] || '').toLowerCase() === 'μ' ? 100 : 1;
+    w = Math.round(parseFloat(m[1].replace(',', '.')) * k * 100) / 100;
+    h = Math.round(parseFloat(m[2].replace(',', '.')) * k * 100) / 100;
+  }
+  document.getElementById('admin-feat-width').value = w;
+  document.getElementById('admin-feat-height').value = h;
+}
+
+    window.onload = function() {
+      renderAll();
+      if (new URLSearchParams(location.search).has('admin')) handleAdminButtonClick();
+    };
+  </script>
+
+    <script>
+  // =========================================================================
+  // ΖΩΝΤΑΝΟ ΦΟΝΤΟ «ΦΩΣ ΚΑΝΔΗΛΙΟΥ»
+  // Χρυσή σκόνη που αιωρείται και ένα ζεστό φως που ακολουθεί το ποντίκι.
+  // Για να το σβήσεις: άλλαξε enabled σε false, ή σβήσε ολόκληρο αυτό το <script>.
+  // =========================================================================
+  (function () {
+    const CFG = {
+      enabled: true,       // false = σβήνει όλο το εφέ
+      dust: 55,            // πόσα χρυσά σωματίδια (στο κινητό μπαίνουν τα μισά)
+      glow: true,          // φως που ακολουθεί το ποντίκι
+      glowRadius: 280,     // μέγεθος του φωτός σε pixel
+      glowStrength: 0.24,  // πόσο έντονο είναι το φως (0 έως 0.4)
+      repel: 120           // από πόσο μακριά απωθούνται τα σωματίδια από το ποντίκι
+    };
+    if (!CFG.enabled) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'live-bg';
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let W = 0, H = 0;
+    const particles = [];
+    let mx = -9999, my = -9999, gx = -9999, gy = -9999;
+    let active = false, glowA = 0, lastMove = 0, lastType = 'mouse';
+    let lastScroll = window.scrollY, lastT = performance.now();
+
+    function spawn(p, anywhere) {
+      p.depth = 0.25 + Math.random() * 0.75;       // μικρό = μακριά, μεγάλο = κοντά
+      p.r = 0.7 + p.depth * 1.9;
+      p.x = Math.random() * W;
+      p.y = anywhere ? Math.random() * H : H + 12;
+      p.vx = (Math.random() - 0.5) * 0.15;
+      p.vy = -(0.12 + Math.random() * 0.35) * (0.5 + p.depth);
+      p.ph = Math.random() * Math.PI * 2;
+      p.tw = 0.0006 + Math.random() * 0.0016;      // ταχύτητα λάμψης
+      p.light = Math.random() < 0.45;              // μερικά πιο ανοιχτόχρυσα
+      return p;
+    }
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const want = W < 700 ? Math.round(CFG.dust * 0.5) : CFG.dust;
+      while (particles.length < want) particles.push(spawn({}, true));
+      particles.length = want;
+    }
+
+    window.addEventListener('resize', resize);
+    window.addEventListener('pointermove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      if (!active && glowA < 0.05) { gx = mx; gy = my; }
+      active = true; lastMove = performance.now(); lastType = e.pointerType || 'mouse';
+    }, { passive: true });
+    document.documentElement.addEventListener('mouseleave', () => { active = false; });
+    window.addEventListener('scroll', () => {
+      const d = window.scrollY - lastScroll;
+      lastScroll = window.scrollY;
+      // παράλλαξη: τα σωματίδια ακολουθούν λίγο το σκρολάρισμα, με βάση το «βάθος» τους
+      for (const p of particles) p.y -= d * p.depth * 0.35;
+    }, { passive: true });
+
+    resize();
+
+    function frame(now) {
+      const k = Math.min((now - lastT) / 16.67, 3);
+      lastT = now;
+          // Κόβει «τρύπες» στο φως και στη σκόνη πάνω από τις εικόνες, ώστε να μη φαίνονται μέσα τους
+    if (ctx.holes) ctx.restore();
+    ctx.clearRect(0, 0, W, H);
+    ctx.save();
+    ctx.holes = true;
+    for (const img of document.images) {
+      const r = img.getBoundingClientRect();
+      if (r.width < 40 || r.height < 40) continue;
+      if (r.bottom < 0 || r.top > H || r.right < 0 || r.left > W) continue;
+      const x1 = Math.floor(r.left), y1 = Math.floor(r.top);
+      ctx.beginPath();
+      ctx.rect(0, 0, W, H);
+      ctx.rect(x1, y1, Math.ceil(r.right) - x1, Math.ceil(r.bottom) - y1);
+      ctx.clip('evenodd');
+    }
+
+      if (lastType === 'touch' && now - lastMove > 2500) active = false;
+      glowA += ((active ? 1 : 0) - glowA) * 0.06 * k;
+      gx += (mx - gx) * 0.09 * k;
+      gy += (my - gy) * 0.09 * k;
+
+      // Το φως
+      if (CFG.glow && glowA > 0.01) {
+        const flick = 1 + 0.05 * Math.sin(now / 230) + 0.03 * Math.sin(now / 97 + 1.3);
+        const R = CFG.glowRadius * flick;
+        const a = CFG.glowStrength * glowA;
+        const g = ctx.createRadialGradient(gx, gy, 0, gx, gy, R);
+        g.addColorStop(0, 'rgba(255,214,120,' + a + ')');
+        g.addColorStop(0.35, 'rgba(226,192,102,' + (a * 0.6) + ')');
+        g.addColorStop(1, 'rgba(197,155,39,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(gx - R, gy - R, R * 2, R * 2);
+      }
+
+      // Η χρυσή σκόνη
+      const R2 = CFG.repel;
+      for (const p of particles) {
+        p.x += (p.vx + Math.sin(now * 0.0004 + p.ph) * 0.12) * k;
+        p.y += p.vy * k;
+
+        if (active) {
+          const dx = p.x - mx, dy = p.y - my, d2 = dx * dx + dy * dy;
+          if (d2 < R2 * R2 && d2 > 1) {
+            const d = Math.sqrt(d2), f = Math.pow(1 - d / R2, 2) * p.depth;
+            p.x += (dx / d * 2.4 - dy / d * 0.9) * f * k;   // απωθούνται και στροβιλίζονται
+            p.y += (dy / d * 2.4 + dx / d * 0.9) * f * k;
+          }
+        }
+
+        if (p.y < -14) spawn(p, false);
+        else if (p.y > H + 40) p.y = -10;
+        if (p.x < -14) p.x = W + 10; else if (p.x > W + 14) p.x = -10;
+
+        const tw = 0.55 + 0.45 * Math.sin(now * p.tw + p.ph);
+        const a = (0.3 + p.depth * 0.5) * tw;
+        const rgb = p.light ? '226,192,102' : '197,155,39';
+        ctx.fillStyle = 'rgba(' + rgb + ',' + (a * 0.18) + ')';
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3.4, 0, 6.2832); ctx.fill();
+        ctx.fillStyle = 'rgba(' + rgb + ',' + a + ')';
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
